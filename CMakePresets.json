@@ -1,0 +1,45 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 19,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "name": "release",
+            "description": "Release mode",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/release",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
+                "CMAKE_CXX_FLAGS_RELEASE": "-static-libgcc -static-libstdc++ -Wall",
+                "CMAKE_EXE_LINKER_FLAGS": "-static -static-libgcc -static-libstdc++"
+            }
+        },
+
+        {
+            "name": "debug",
+            "description": "Debug mode",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/out/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
+                "CMAKE_CXX_FLAGS_RELEASE": "-static-libgcc -static-libstdc++ -Wall -fsanitize=address -fno-omit-frame-pointer -g",
+                "CMAKE_EXE_LINKER_FLAGS": "-static-libgcc -static-libstdc++"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "release",
+            "configurePreset": "release"
+        },
+        {
+            "name": "debug",
+            "configurePreset": "debug"
+        }
+    ]
+}

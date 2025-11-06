@@ -1,0 +1,10 @@
+^C:\USERS\28JHIGGINS\DOCUMENTS\CXXPROJECTS\STAFF\BUILD\CMAKEFILES\31DB0B7F97E702EBA6FD6D0346A99247\GENERATE.STAMP.RULE
+setlocal
+C:\Users\28JHiggins\Documents\cmake\bin\cmake.exe -SC:/Users/28JHiggins/Documents/cxxprojects/staff -BC:/Users/28JHiggins/Documents/cxxprojects/staff/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/28JHiggins/Documents/cxxprojects/staff/build/staff.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

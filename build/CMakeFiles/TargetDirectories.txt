@@ -1,0 +1,3 @@
+C:/Users/28JHiggins/Documents/cxxprojects/staff/build/CMakeFiles/staff.dir
+C:/Users/28JHiggins/Documents/cxxprojects/staff/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/28JHiggins/Documents/cxxprojects/staff/build/CMakeFiles/ZERO_CHECK.dir

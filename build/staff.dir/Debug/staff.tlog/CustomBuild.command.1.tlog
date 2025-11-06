@@ -1,0 +1,10 @@
+^C:\USERS\28JHIGGINS\DOCUMENTS\CXXPROJECTS\STAFF\CMAKELISTS.TXT
+setlocal
+C:\Users\28JHiggins\Documents\cmake\bin\cmake.exe -SC:/Users/28JHiggins/Documents/cxxprojects/staff -BC:/Users/28JHiggins/Documents/cxxprojects/staff/build --check-stamp-file C:/Users/28JHiggins/Documents/cxxprojects/staff/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
