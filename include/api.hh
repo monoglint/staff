@@ -2,6 +2,7 @@
 
 #include <unordered_set>
 #include <iterator>
+#include <iostream>
 
 #include "internal.hh"
 
@@ -89,7 +90,7 @@ struct staff_session {
         return e_add_student_code::SUCCESS;
     }
 
-    inline void edit_staff(const std::string& name, const std::unordered_set<e_period_index> available_periods) {
+    inline void edit_staff(const std::string& name, const std::unordered_set<e_period_index>& available_periods) {
         std::cout << "NOT IMPLEMENTED\n";
     }
 

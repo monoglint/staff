@@ -198,8 +198,9 @@ std::stringstream staff_session::print_state() const {
     
     buffer << "Staff List:\n";
     for (const staff_entry& entry : state.staff_list) { 
-        buffer << "    Name:         " << state.name_list[entry.name_id] << '\n';
-        buffer << "    Availability: " << to_string(entry.availability) << '\n';
+        buffer << "    Name:            " << state.name_list[entry.name_id] << '\n';
+        buffer << "    Availability:    " << to_string(entry.availability) << '\n';
+        buffer << "    Days Available:  " << std::to_string(entry.max_lunches) << '\n';
         buffer << '\n';
     }
 
