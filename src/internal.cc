@@ -11,6 +11,7 @@ File file format
 'staff entries'    
     (8 bit) NAME
     (8 bit) AVAILABILITY
+    (8 bit) LUNCHES PER DAY
     DELIMITER
 (tok) - student count
 'student entries'
@@ -38,7 +39,7 @@ bool save_state::save() const {
 
     buffer << (uint8_t)staff_list.size() << TOK_DELIM;
     for (const staff_entry& entry : staff_list) {
-        buffer << (uint8_t)entry.name_id << (uint8_t)entry.availability << TOK_DELIM;
+        buffer << (uint8_t)entry.name_id << (uint8_t)entry.availability << (uint8_t)entry.max_lunches << TOK_DELIM;
     }
 
     buffer << (uint8_t)student_list.size() << TOK_DELIM;
@@ -51,15 +52,11 @@ bool save_state::save() const {
     return true;
 };
 
-inline bool operator==(const std::string& str, const char c) {
+inline bool string_matches_char(const std::string& str, const char c) {
     if (str.size() != 1)
         return false;
 
     return str[0] == c;
-}
-
-inline bool operator!=(const std::string& str, const char c) {
-    return !(str == c);
 }
 
 static bool parse_token_list(save_state& state, const std::vector<std::string>& token_list) {
@@ -77,8 +74,9 @@ static bool parse_token_list(save_state& state, const std::vector<std::string>& 
 
         uint8_t b_name = tok[0];
         uint8_t b_availability = tok[1];
+        uint8_t max_lunches = tok[2];
 
-        state.append_staff(staff_entry(b_name, (f_lunch_availability)b_availability));
+        state.append_staff(staff_entry(b_name, (f_period_index)b_availability, max_lunches));
     }
 
     uint8_t student_count = token_list[ip++][0];

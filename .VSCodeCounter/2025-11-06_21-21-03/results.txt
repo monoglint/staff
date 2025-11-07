@@ -1,0 +1,106 @@
+Date : 2025-11-06 21:21:03
+Directory : c:\Users\jghig\cxxprojects\staff
+Total : 53 files,  9938 codes, 200 comments, 750 blanks, all 10888 lines
+
+Languages
++-------------+------------+------------+------------+------------+------------+
+| language    | files      | code       | comment    | blank      | total      |
++-------------+------------+------------+------------+------------+------------+
+| YAML        |          2 |      3,228 |          2 |         30 |      3,260 |
+| JSON        |         25 |      3,005 |          0 |         24 |      3,029 |
+| C++         |          8 |      1,883 |        198 |        453 |      2,534 |
+| XML         |          7 |        923 |          0 |         28 |        951 |
+| CMake Cache |          2 |        581 |          0 |        134 |        715 |
+| CMake       |          9 |        318 |          0 |         81 |        399 |
++-------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                                  | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                                     |         53 |      9,938 |        200 |        750 |     10,888 |
+| . (Files)                                                                                                             |          2 |         59 |          0 |          6 |         65 |
+| build                                                                                                                 |         37 |      5,728 |         63 |        323 |      6,114 |
+| build (Files)                                                                                                         |          5 |      1,055 |          0 |         68 |      1,123 |
+| build\.cmake                                                                                                          |         22 |      2,947 |          0 |         21 |      2,968 |
+| build\.cmake\api                                                                                                      |         22 |      2,947 |          0 |         21 |      2,968 |
+| build\.cmake\api\v1                                                                                                   |         22 |      2,947 |          0 |         21 |      2,968 |
+| build\.cmake\api\v1\query                                                                                             |          1 |          1 |          0 |          0 |          1 |
+| build\.cmake\api\v1\query\client-vscode                                                                               |          1 |          1 |          0 |          0 |          1 |
+| build\.cmake\api\v1\reply                                                                                             |         21 |      2,946 |          0 |         21 |      2,967 |
+| build\CMakeFiles                                                                                                      |         10 |      1,726 |         63 |        234 |      2,023 |
+| build\CMakeFiles (Files)                                                                                              |          2 |        716 |          0 |         19 |        735 |
+| build\CMakeFiles\4.1.2                                                                                                |          8 |      1,010 |         63 |        215 |      1,288 |
+| build\CMakeFiles\4.1.2 (Files)                                                                                        |          5 |        161 |          0 |         31 |        192 |
+| build\CMakeFiles\4.1.2\CompilerIdCXX                                                                                  |          3 |        849 |         63 |        184 |      1,096 |
+| include                                                                                                               |          3 |        140 |         24 |         45 |        209 |
+| out                                                                                                                   |          8 |      3,726 |         65 |        284 |      4,075 |
+| out\release                                                                                                           |          8 |      3,726 |         65 |        284 |      4,075 |
+| out\release (Files)                                                                                                   |          2 |        371 |          0 |         81 |        452 |
+| out\release\CMakeFiles                                                                                                |          6 |      3,355 |         65 |        203 |      3,623 |
+| out\release\CMakeFiles (Files)                                                                                        |          2 |      2,526 |          2 |         13 |      2,541 |
+| out\release\CMakeFiles\4.1.1                                                                                          |          4 |        829 |         63 |        190 |      1,082 |
+| out\release\CMakeFiles\4.1.1 (Files)                                                                                  |          3 |        100 |          0 |         32 |        132 |
+| out\release\CMakeFiles\4.1.1\CompilerIdCXX                                                                            |          1 |        729 |         63 |        158 |        950 |
+| src                                                                                                                   |          3 |        285 |         48 |         92 |        425 |
++-----------------------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| filename                                                                                                              | language    | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+
+| c:\Users\jghig\cxxprojects\staff\CMakeLists.txt                                                                       | CMake       |         15 |          0 |          5 |         20 |
+| c:\Users\jghig\cxxprojects\staff\CMakePresets.json                                                                    | JSON        |         44 |          0 |          1 |         45 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\query\client-vscode\query.json                                   | JSON        |          1 |          0 |          0 |          1 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\cache-v2-3344bfe3e4fbb74d0133.json                         | JSON        |      1,063 |          0 |          1 |      1,064 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\cmakeFiles-v1-793f2d9ca331240d2f1c.json                    | JSON        |        500 |          0 |          1 |        501 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\codemodel-v2-2aa2d87986aec42793b7.json                     | JSON        |        264 |          0 |          1 |        265 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\directory-.-Debug-d0094a50bb2071803777.json                | JSON        |         14 |          0 |          1 |         15 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\directory-.-MinSizeRel-d0094a50bb2071803777.json           | JSON        |         14 |          0 |          1 |         15 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\directory-.-RelWithDebInfo-d0094a50bb2071803777.json       | JSON        |         14 |          0 |          1 |         15 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\directory-.-Release-d0094a50bb2071803777.json              | JSON        |         14 |          0 |          1 |         15 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\index-2025-10-23T14-14-19-0482.json                        | JSON        |        133 |          0 |          1 |        134 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ALL_BUILD-Debug-52abb4f0ae73211f30cb.json           | JSON        |         36 |          0 |          1 |         37 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ALL_BUILD-MinSizeRel-52abb4f0ae73211f30cb.json      | JSON        |         36 |          0 |          1 |         37 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ALL_BUILD-RelWithDebInfo-52abb4f0ae73211f30cb.json  | JSON        |         36 |          0 |          1 |         37 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ALL_BUILD-Release-52abb4f0ae73211f30cb.json         | JSON        |         36 |          0 |          1 |         37 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ZERO_CHECK-Debug-ff37501279dfcf676e97.json          | JSON        |         45 |          0 |          1 |         46 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ZERO_CHECK-MinSizeRel-ff37501279dfcf676e97.json     | JSON        |         45 |          0 |          1 |         46 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ZERO_CHECK-RelWithDebInfo-ff37501279dfcf676e97.json | JSON        |         45 |          0 |          1 |         46 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-ZERO_CHECK-Release-ff37501279dfcf676e97.json        | JSON        |         45 |          0 |          1 |         46 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-staff-Debug-1203b2794a8e9bb29a96.json               | JSON        |        137 |          0 |          1 |        138 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-staff-MinSizeRel-661cbcccd548c810a959.json          | JSON        |        137 |          0 |          1 |        138 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-staff-RelWithDebInfo-b9cbfeb7201ddfd6c6be.json      | JSON        |        137 |          0 |          1 |        138 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\target-staff-Release-c5f1ac89c1c08c9e333e.json             | JSON        |        137 |          0 |          1 |        138 |
+| c:\Users\jghig\cxxprojects\staff\build\.cmake\api\v1\reply\toolchains-v1-7957fc096383d808df93.json                    | JSON        |         58 |          0 |          1 |         59 |
+| c:\Users\jghig\cxxprojects\staff\build\ALL_BUILD.vcxproj                                                              | XML         |        185 |          0 |          0 |        185 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeCache.txt                                                                 | CMake Cache |        264 |          0 |         61 |        325 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CMakeCXXCompiler.cmake                                        | CMake       |         83 |          0 |         22 |        105 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CMakeRCCompiler.cmake                                         | CMake       |          6 |          0 |          1 |          7 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CMakeSystem.cmake                                             | CMake       |         10 |          0 |          6 |         16 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CompilerIdCXX\CMakeCXXCompilerId.cpp                          | C++         |        729 |         63 |        158 |        950 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CompilerIdCXX\CompilerIdCXX.vcxproj(1).xml                    | XML         |         60 |          0 |         13 |         73 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\CompilerIdCXX\CompilerIdCXX.vcxproj.xml                       | XML         |         60 |          0 |         13 |         73 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\VCTargetsPath.vcxproj(1).xml                                  | XML         |         31 |          0 |          1 |         32 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\4.1.2\VCTargetsPath.vcxproj.xml                                     | XML         |         31 |          0 |          1 |         32 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\CMakeConfigureLog.yaml                                              | YAML        |        709 |          0 |         18 |        727 |
+| c:\Users\jghig\cxxprojects\staff\build\CMakeFiles\InstallScripts.json                                                 | JSON        |          7 |          0 |          1 |          8 |
+| c:\Users\jghig\cxxprojects\staff\build\ZERO_CHECK.vcxproj                                                             | XML         |        179 |          0 |          0 |        179 |
+| c:\Users\jghig\cxxprojects\staff\build\cmake_install.cmake                                                            | CMake       |         50 |          0 |          7 |         57 |
+| c:\Users\jghig\cxxprojects\staff\build\staff.vcxproj                                                                  | XML         |        377 |          0 |          0 |        377 |
+| c:\Users\jghig\cxxprojects\staff\include\api.hh                                                                       | C++         |         19 |         10 |          9 |         38 |
+| c:\Users\jghig\cxxprojects\staff\include\core.hh                                                                      | C++         |          9 |          0 |          2 |         11 |
+| c:\Users\jghig\cxxprojects\staff\include\internal.hh                                                                  | C++         |        112 |         14 |         34 |        160 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeCache.txt                                                           | CMake Cache |        317 |          0 |         73 |        390 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\4.1.1\CMakeCXXCompiler.cmake                                  | CMake       |         84 |          0 |         25 |        109 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\4.1.1\CMakeRCCompiler.cmake                                   | CMake       |          6 |          0 |          1 |          7 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\4.1.1\CMakeSystem.cmake                                       | CMake       |         10 |          0 |          6 |         16 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\4.1.1\CompilerIdCXX\CMakeCXXCompilerId.cpp                    | C++         |        729 |         63 |        158 |        950 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\CMakeConfigureLog.yaml                                        | YAML        |      2,519 |          2 |         12 |      2,533 |
+| c:\Users\jghig\cxxprojects\staff\out\release\CMakeFiles\InstallScripts.json                                           | JSON        |          7 |          0 |          1 |          8 |
+| c:\Users\jghig\cxxprojects\staff\out\release\cmake_install.cmake                                                      | CMake       |         54 |          0 |          8 |         62 |
+| c:\Users\jghig\cxxprojects\staff\src\api.cc                                                                           | C++         |        168 |         22 |         48 |        238 |
+| c:\Users\jghig\cxxprojects\staff\src\internal.cc                                                                      | C++         |         69 |         25 |         24 |        118 |
+| c:\Users\jghig\cxxprojects\staff\src\main.cc                                                                          | C++         |         48 |          1 |         20 |         69 |
+| Total                                                                                                                 |             |      9,938 |        200 |        750 |     10,888 |
++-----------------------------------------------------------------------------------------------------------------------+-------------+------------+------------+------------+------------+

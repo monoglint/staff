@@ -1,18 +1,3 @@
-/*
-
-savestate.hh
-
-Updated by Jonah Higgins
-4 Nov 2025
-
-Holds the data structures for storing information about staff and student entries in a (somewhat)
-efficient way.
-
-app.hh currently carries all of the functions meant for interracting with the datastructure in
-an abstract way.
-
-*/
-
 #pragma once
 
 #include <fstream>
@@ -26,6 +11,8 @@ an abstract way.
 
 #include "core.hh"
 
+// Save states are a tiny bit fragile - limits are enforced in api.hh
+
 constexpr uint8_t TOK_DELIM = '\x1e'; // this is not a token, it delimits them
 
 enum class e_lunch_period : uint8_t {
@@ -34,7 +21,22 @@ enum class e_lunch_period : uint8_t {
     C
 };
 
-enum class f_lunch_availability : uint8_t {
+const uint8_t ADD_CONSTANT = 3;
+
+using t_period_index_base = size_t;
+enum class e_period_index : t_period_index_base {
+    AA = 0, // A
+    AB = 1, // B
+    AC = 2, // C
+    BA = 3, // A + ADD_CONSTANT
+    BB = 4, // B + ADD_CONSTANT
+    BC = 5, // C + ADD_CONSTANT
+    _MAX = 6,
+};
+
+using t_period_index_list = std::vector<e_period_index>;
+
+enum class f_period_index : uint8_t {
     NONE = 0,
     AA = 1 << 0,
     AB = 1 << 1,
@@ -44,12 +46,12 @@ enum class f_lunch_availability : uint8_t {
     BC = 1 << 5,
 };
 
-inline f_lunch_availability operator|(f_lunch_availability a, f_lunch_availability b) {
-    return (f_lunch_availability)((uint8_t)a | (uint8_t)b);
+inline f_period_index operator|(f_period_index a, f_period_index b) {
+    return (f_period_index)((uint8_t)a | (uint8_t)b);
 }
 
-inline f_lunch_availability operator&(f_lunch_availability a, f_lunch_availability b) {
-    return (f_lunch_availability)((uint8_t)a & (uint8_t)b);
+inline f_period_index operator&(f_period_index a, f_period_index b) {
+    return (f_period_index)((uint8_t)a & (uint8_t)b);
 }
 
 using t_name_id = uint8_t; // index in t_name_list
@@ -59,8 +61,8 @@ using t_name_id_list = std::vector<t_name_id>;
 using t_serialized_entry = uint32_t;
 using t_serialized_entry_list = std::vector<t_serialized_entry>;
 
-#define FM_B(la, str) if (flag_match(availability, f_lunch_availability::la)) buffer << str;
-inline std::string to_string(const f_lunch_availability& availability) {
+#define FM_B(la, str) if (flag_match(availability, f_period_index::la)) buffer << str;
+inline std::string to_string(const f_period_index& availability) {
     std::stringstream buffer;
 
     FM_B(AA, "AA ")
@@ -91,11 +93,14 @@ inline std::string to_string(const e_lunch_period& period) {
 }
 
 struct staff_entry {
-    staff_entry(const t_name_id name_id, const f_lunch_availability availability = f_lunch_availability::NONE)
-        : name_id(name_id), availability(availability) {}
+    staff_entry(const t_name_id name_id, const f_period_index availability = f_period_index::NONE, const uint8_t max_lunches = 1)
+        : name_id(name_id), availability(availability), max_lunches(max_lunches) {}
 
     t_name_id name_id;
-    f_lunch_availability availability;
+    f_period_index availability;
+
+    // maximum lunches per a/b cycle the staff prefers - might switch to by day
+    uint8_t max_lunches;
 };
 
 struct student_entry {
@@ -123,8 +128,12 @@ struct save_state {
         const bool success = load();
 
         if (!success) {
-            std::cout << "Failed to open \"" + file_name + "\".\n";
+            std::cout << "First open - Generating new empty file.\n";
         }
+    }
+
+    ~save_state() {
+        save();
     }
 
     std::string file_name;
@@ -133,7 +142,10 @@ struct save_state {
     t_staff_list staff_list;
     t_student_list student_list;
 
-    inline t_name_id append_name(const std::string& name) {
+    bool save() const;
+    bool load();
+
+    inline t_name_id add_or_find_name(const std::string& name) {
         const auto& iterator = std::find(name_list.begin(), name_list.end(), name);
         if (iterator != name_list.end())
             return std::distance(name_list.begin(), iterator);
@@ -153,7 +165,4 @@ struct save_state {
 
         return student_list.size() - 1;
     }
-
-    bool save() const;
-    bool load();
 };

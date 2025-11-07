@@ -14,7 +14,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
                 "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
-                "CMAKE_CXX_FLAGS_RELEASE": "-static-libgcc -static-libstdc++ -Wall",
+                "CMAKE_CXX_FLAGS_RELEASE": "-O2 -static-libgcc -static-libstdc++",
                 "CMAKE_EXE_LINKER_FLAGS": "-static -static-libgcc -static-libstdc++"
             }
         },
@@ -27,7 +27,7 @@
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
                 "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
-                "CMAKE_CXX_FLAGS_RELEASE": "-static-libgcc -static-libstdc++ -Wall -fsanitize=address -fno-omit-frame-pointer -g",
+                "CMAKE_CXX_FLAGS_RELEASE": "-static-libgcc -static-libstdc++",
                 "CMAKE_EXE_LINKER_FLAGS": "-static-libgcc -static-libstdc++"
             }
         }
