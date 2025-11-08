@@ -1,7 +1,10 @@
 {
 	"InstallScripts" : 
 	[
-		"C:/Users/jghig/projects/c/staff/out/release/cmake_install.cmake"
+		"C:/Users/jghig/projects/c/staff/out/release/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/staff/out/release/external/glfw/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/staff/out/release/external/glfw/src/cmake_install.cmake",
+		"C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
