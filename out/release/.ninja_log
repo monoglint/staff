@@ -1,18 +1,5 @@
 # ninja log v7
-17	508	7841930415751996	CMakeFiles/staff.dir/src/main.cc.obj	119d4a18101cdc25
-23	411	7841924273889047	CMakeFiles/staff.dir/src/internal.cc.obj	ad2258f56619c229
-26	616	7841924273919146	CMakeFiles/staff.dir/src/api.cc.obj	cd49a4695a9147f1
-491	652	7841929544074291	staff.exe	6ba2535482a1497d
-17	108	7841931379568389	build.ninja	2b9e464229a425bc
-17	108	7841931379568389	C:/Users/jghig/cxxprojects/staff/out/release/cmake_install.cmake	2b9e464229a425bc
-15	458	7841931379938311	CMakeFiles/staff.dir/src/main.cc.obj	119d4a18101cdc25
-2	490	7841931850755896	CMakeFiles/staff.dir/src/main.cc.obj	119d4a18101cdc25
-17	489	7841932231948272	CMakeFiles/staff.dir/src/main.cc.obj	119d4a18101cdc25
-490	648	7841932236670028	staff.exe	6ba2535482a1497d
-18	480	7841933523907047	CMakeFiles/staff.dir/src/main.cc.obj	119d4a18101cdc25
-21	687	7841933523937048	CMakeFiles/staff.dir/src/api.cc.obj	cd49a4695a9147f1
-687	871	7841933530605846	staff.exe	6ba2535482a1497d
-19	634	7841935503013482	CMakeFiles/staff.dir/src/api.cc.obj	cd49a4695a9147f1
-634	792	7841935509176140	staff.exe	6ba2535482a1497d
-19	722	7841935717032841	CMakeFiles/staff.dir/src/api.cc.obj	cd49a4695a9147f1
-722	888	7841935724046161	staff.exe	6ba2535482a1497d
+24	417	7843337821709364	CMakeFiles/staff.dir/src/internal.cc.obj	598afa5283d9dc22
+22	524	7843337821689355	CMakeFiles/staff.dir/src/main.cc.obj	3de7d06f43776ae0
+26	763	7843337821729369	CMakeFiles/staff.dir/src/api.cc.obj	dc809a6424ce4474
+763	929	7843337829099201	staff.exe	6ba2535482a1497d

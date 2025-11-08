@@ -29,6 +29,11 @@ struct distribution_export {
     bool are_all_periods_covered;
 };
 
+enum class e_entry_type {
+    STAFF,
+    STUDENT
+};
+
 // The primary interface struct you should use to work with the program.
 // Follows RAII
 struct staff_session {
@@ -104,6 +109,7 @@ struct staff_session {
     };
 
     // Erase any entries that match the given name.
+    template <e_entry_type TYPE>
     inline e_remove_code remove(const std::string& name) {
         const t_name_list::iterator& name_id_iterator = std::find(state.name_list.begin(), state.name_list.end(), name);
 
@@ -112,20 +118,20 @@ struct staff_session {
 
         const t_name_id name_id = std::distance(state.name_list.begin(), name_id_iterator);
 
-        for (t_staff_list::iterator it = state.staff_list.begin(); it != state.staff_list.end();) {
-            if (it->name_id == name_id)
-                it = state.staff_list.erase(it);
-            else
-                it++;
-        }
-
-        // boilerplate - try to remove if possible
-        for (t_student_list::iterator it = state.student_list.begin(); it != state.student_list.end();) {
-            if (it->name_id == name_id)
-                it = state.student_list.erase(it);
-            else
-                it++;
-        }
+        if constexpr (TYPE == e_entry_type::STAFF)
+            for (t_staff_list::iterator it = state.staff_list.begin(); it != state.staff_list.end();) {
+                if (it->name_id == name_id)
+                    it = state.staff_list.erase(it);
+                else
+                    it++;
+            }
+        else
+            for (t_student_list::iterator it = state.student_list.begin(); it != state.student_list.end();) {
+                if (it->name_id == name_id)
+                    it = state.student_list.erase(it);
+                else
+                    it++;
+            }
 
         return e_remove_code::SUCCESS;
     }

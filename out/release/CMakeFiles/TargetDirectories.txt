@@ -1,3 +1,3 @@
-C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/staff.dir
-C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/edit_cache.dir
-C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/rebuild_cache.dir
+C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/staff.dir
+C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/edit_cache.dir
+C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/rebuild_cache.dir

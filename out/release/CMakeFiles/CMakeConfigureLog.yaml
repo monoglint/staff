@@ -29,8 +29,8 @@ events:
       - "ninja"
       - "samu"
     candidate_directories:
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -61,15 +61,6 @@ events:
       - "C:/Program Files/Cloc/"
       - "C:/Users/jghig/cxxprojects/livm/out/release/"
     searched_directories:
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/ninja-build.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/ninja-build.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/ninja-build"
@@ -79,6 +70,15 @@ events:
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/samu.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/samu.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/samu"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja-build"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/ninja"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/samu"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/ninja-build.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/ninja-build.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/ninja-build"
@@ -284,8 +284,8 @@ events:
     found: "C:/Program Files/Ninja/ninja.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -347,8 +347,8 @@ events:
     found: "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -403,7 +403,7 @@ events:
       Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "a.exe"
       
       The CXX compiler identification is GNU, found in:
-        C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/4.1.1/CompilerIdCXX/a.exe
+        C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/4.1.1/CompilerIdCXX/a.exe
       
   -
     kind: "find-v1"
@@ -426,8 +426,8 @@ events:
       - "ar"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -461,8 +461,8 @@ events:
     found: "C:/msys64/mingw64/bin/ar.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -518,8 +518,8 @@ events:
       - "ranlib"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -553,8 +553,8 @@ events:
     found: "C:/msys64/mingw64/bin/ranlib.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -610,8 +610,8 @@ events:
       - "strip"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -645,8 +645,8 @@ events:
     found: "C:/msys64/mingw64/bin/strip.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -702,8 +702,8 @@ events:
       - "ld"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -737,8 +737,8 @@ events:
     found: "C:/msys64/mingw64/bin/ld.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -794,8 +794,8 @@ events:
       - "nm"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -829,8 +829,8 @@ events:
     found: "C:/msys64/mingw64/bin/nm.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -886,8 +886,8 @@ events:
       - "objdump"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -921,8 +921,8 @@ events:
     found: "C:/msys64/mingw64/bin/objdump.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -978,8 +978,8 @@ events:
       - "objcopy"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1013,8 +1013,8 @@ events:
     found: "C:/msys64/mingw64/bin/objcopy.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1070,8 +1070,8 @@ events:
       - "readelf"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1105,8 +1105,8 @@ events:
     found: "C:/msys64/mingw64/bin/readelf.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1162,8 +1162,8 @@ events:
       - "dlltool"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1197,8 +1197,8 @@ events:
     found: "C:/msys64/mingw64/bin/dlltool.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1254,8 +1254,8 @@ events:
       - "addr2line"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1289,8 +1289,8 @@ events:
     found: "C:/msys64/mingw64/bin/addr2line.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1346,8 +1346,8 @@ events:
       - "tapi"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1380,12 +1380,12 @@ events:
       - "C:/msys64/mingw64/bin/tapi.com"
       - "C:/msys64/mingw64/bin/tapi.exe"
       - "C:/msys64/mingw64/bin/tapi"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/tapi.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/tapi.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/tapi"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/tapi"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/tapi.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/tapi.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/tapi"
@@ -1473,8 +1473,8 @@ events:
     found: false
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1533,8 +1533,8 @@ events:
       - "gcc-ar"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1567,12 +1567,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ar-14.2.com"
       - "C:/msys64/mingw64/bin/gcc-ar-14.2.exe"
       - "C:/msys64/mingw64/bin/gcc-ar-14.2"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.2"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.2"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14.2.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14.2.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14.2"
@@ -1660,12 +1660,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ar-14.com"
       - "C:/msys64/mingw64/bin/gcc-ar-14.exe"
       - "C:/msys64/mingw64/bin/gcc-ar-14"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar-14"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar-14"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar-14"
@@ -1753,12 +1753,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ar14.com"
       - "C:/msys64/mingw64/bin/gcc-ar14.exe"
       - "C:/msys64/mingw64/bin/gcc-ar14"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ar14"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ar14"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar14.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar14.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ar14"
@@ -1847,8 +1847,8 @@ events:
     found: "C:/msys64/mingw64/bin/gcc-ar.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -1907,8 +1907,8 @@ events:
       - "gcc-ranlib"
     candidate_directories:
       - "C:/msys64/mingw64/bin/"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -1941,12 +1941,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ranlib-14.2.com"
       - "C:/msys64/mingw64/bin/gcc-ranlib-14.2.exe"
       - "C:/msys64/mingw64/bin/gcc-ranlib-14.2"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.2"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.2"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14.2.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14.2.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14.2"
@@ -2034,12 +2034,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ranlib-14.com"
       - "C:/msys64/mingw64/bin/gcc-ranlib-14.exe"
       - "C:/msys64/mingw64/bin/gcc-ranlib-14"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib-14"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib-14"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib-14"
@@ -2127,12 +2127,12 @@ events:
       - "C:/msys64/mingw64/bin/gcc-ranlib14.com"
       - "C:/msys64/mingw64/bin/gcc-ranlib14.exe"
       - "C:/msys64/mingw64/bin/gcc-ranlib14"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/gcc-ranlib14"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/gcc-ranlib14"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib14.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib14.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/gcc-ranlib14"
@@ -2221,8 +2221,8 @@ events:
     found: "C:/msys64/mingw64/bin/gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -2280,8 +2280,8 @@ events:
       - "windres"
       - "windres"
     candidate_directories:
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/"
       - "C:/Program Files/Razer Chroma SDK/bin/"
       - "C:/Program Files (x86)/Razer/ChromaBroadcast/bin/"
@@ -2324,12 +2324,12 @@ events:
       - "C:/Program Files (x86)/staff/sbin/"
       - "C:/Program Files (x86)/staff/"
     searched_directories:
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres.com"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres.exe"
-      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/windres.com"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/windres.exe"
       - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/debugCommand/windres"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres.com"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres.exe"
+      - "C:/Users/jghig/AppData/Roaming/Code - Insiders/User/globalStorage/github.copilot-chat/copilotCli/windres"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/windres.com"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/windres.exe"
       - "C:/Program Files (x86)/Razer Chroma SDK/bin/windres"
@@ -2397,8 +2397,8 @@ events:
     found: "C:/msys64/ucrt64/bin/windres.exe"
     search_context:
       ENV{PATH}:
-        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\debugCommand"
+        - "c:\\Users\\jghig\\AppData\\Roaming\\Code - Insiders\\User\\globalStorage\\github.copilot-chat\\copilotCli"
         - "C:\\Program Files (x86)\\Razer Chroma SDK\\bin"
         - "C:\\Program Files\\Razer Chroma SDK\\bin"
         - "C:\\Program Files (x86)\\Razer\\ChromaBroadcast\\bin"
@@ -2448,8 +2448,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-p8hqpr"
-      binary: "C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-p8hqpr"
+      source: "C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-m97fut"
+      binary: "C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-m97fut"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -2459,12 +2459,12 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-p8hqpr'
+        Change Dir: 'C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-m97fut'
         
-        Run Build Command(s): C:/PROGRA~1/Ninja/ninja.exe -v cmTC_0d3a6
-        [1/2] C:\\msys64\\mingw64\\bin\\g++.exe   -v -o CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
-        FAILED: [code=1] CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj 
-        C:\\msys64\\mingw64\\bin\\g++.exe   -v -o CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): C:/PROGRA~1/Ninja/ninja.exe -v cmTC_d13f9
+        [1/2] C:\\msys64\\mingw64\\bin\\g++.exe   -v -o CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
+        FAILED: [code=1] CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj 
+        C:\\msys64\\mingw64\\bin\\g++.exe   -v -o CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         COLLECT_GCC=C:\\msys64\\mingw64\\bin\\g++.exe
         Target: x86_64-w64-mingw32
@@ -2472,8 +2472,8 @@ events:
         Thread model: posix
         Supported LTO compression algorithms: zlib zstd
         gcc version 14.2.0 (Rev2, Built by MSYS2 project) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0d3a6.dir/'
-         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -D_REENTRANT C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_0d3a6.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\jghig\\AppData\\Local\\Temp\\ccqlnphh.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_d13f9.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/cc1plus.exe -quiet -v -iprefix C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/ -D_REENTRANT C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -quiet -dumpdir CMakeFiles/cmTC_d13f9.dir/ -dumpbase CMakeCXXCompilerABI.cpp.cpp -dumpbase-ext .cpp -mtune=generic -march=nocona -version -o C:\\Users\\jghig\\AppData\\Local\\Temp\\ccAeqi7f.s
         GNU C++17 (Rev2, Built by MSYS2 project) version 14.2.0 (x86_64-w64-mingw32)
         	compiled by GNU C version 14.2.0, GMP version 6.3.0, MPFR version 4.2.1, MPC version 1.3.1, isl version isl-0.27-GMP
         
@@ -2498,8 +2498,8 @@ events:
          C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/include-fixed
         End of search list.
         Compiler executable checksum: b3080df56ee40e7913959b3ebedc8b09
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_0d3a6.dir/'
-         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_0d3a6.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\jghig\\AppData\\Local\\Temp\\ccqlnphh.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-shared-libgcc' '-mtune=generic' '-march=nocona' '-dumpdir' 'CMakeFiles/cmTC_d13f9.dir/'
+         C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/14.2.0/../../../../x86_64-w64-mingw32/bin/as.exe -v -o CMakeFiles/cmTC_d13f9.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\jghig\\AppData\\Local\\Temp\\ccAeqi7f.s
         ninja: build stopped: subcommand failed.
         
       exitCode: 1
@@ -2511,8 +2511,8 @@ events:
     checks:
       - "Check for working CXX compiler: C:/msys64/mingw64/bin/g++.exe"
     directories:
-      source: "C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-ne8vi9"
-      binary: "C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-ne8vi9"
+      source: "C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-w79kur"
+      binary: "C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-w79kur"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -2522,11 +2522,11 @@ events:
       variable: "CMAKE_CXX_COMPILER_WORKS"
       cached: true
       stdout: |
-        Change Dir: 'C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-ne8vi9'
+        Change Dir: 'C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-w79kur'
         
-        Run Build Command(s): C:/PROGRA~1/Ninja/ninja.exe -v cmTC_2323e
-        [1/2] C:\\msys64\\mingw64\\bin\\g++.exe    -o CMakeFiles/cmTC_2323e.dir/testCXXCompiler.cxx.obj -c C:/Users/jghig/cxxprojects/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-ne8vi9/testCXXCompiler.cxx
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\g++.exe  -static -static-libgcc -static-libstdc++ CMakeFiles/cmTC_2323e.dir/testCXXCompiler.cxx.obj -o cmTC_2323e.exe -Wl,--out-implib,libcmTC_2323e.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
+        Run Build Command(s): C:/PROGRA~1/Ninja/ninja.exe -v cmTC_8ed6c
+        [1/2] C:\\msys64\\mingw64\\bin\\g++.exe    -o CMakeFiles/cmTC_8ed6c.dir/testCXXCompiler.cxx.obj -c C:/Users/jghig/projects/c/staff/out/release/CMakeFiles/CMakeScratch/TryCompile-w79kur/testCXXCompiler.cxx
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && C:\\msys64\\mingw64\\bin\\g++.exe  -static -static-libgcc -static-libstdc++ CMakeFiles/cmTC_8ed6c.dir/testCXXCompiler.cxx.obj -o cmTC_8ed6c.exe -Wl,--out-implib,libcmTC_8ed6c.dll.a -Wl,--major-image-version,0,--minor-image-version,0  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 && cd ."
         
       exitCode: 0
 ...

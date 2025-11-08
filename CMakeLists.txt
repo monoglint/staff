@@ -7,10 +7,18 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 # Your targets here...
 
+add_subdirectory()
 add_executable(staff
     src/main.cc
     src/internal.cc
     src/api.cc
+
+    external/imgui/imgui.cpp
+    external/imgui/imgui_draw.cpp
+    external/imgui/imgui_tables.cpp
+    external/imgui/imgui_widgets.cpp
+    external/imgui/backends/imgui_impl_glfw.cpp
+    external/imgui/backends/imgui_impl_opengl3.cpp
 )
 
 # Add include directory
