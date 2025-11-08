@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("C:/Users/jghig/projects/c/staff/out/release/external/glfw/cmake_install.cmake")
+  include("C:/Users/jghig/projects/c/staff/out/release/external/staff/cmake_install.cmake")
 
 endif()
 

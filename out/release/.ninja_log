@@ -1,8 +1,8 @@
 # ninja log v7
 101	1080	7843342069221153	CMakeFiles/staff.dir/src/internal.cc.obj	6290762714783b10
-98	1336	7843342069191138	CMakeFiles/staff.dir/src/main.cc.obj	6e8a12d2c250b5b3
+15	238	7843343463498313	CMakeFiles/staff.dir/src/main.cc.obj	6e8a12d2c250b5b3
 105	1432	7843342069251142	CMakeFiles/staff.dir/src/api.cc.obj	c1d7d6008c904add
-6952	7213	7843342137723654	staff.exe	38c88380fe091c04
+238	427	7843343465726610	staff.exe	38c88380fe091c04
 128	2478	7843342069485203	CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj	ecea1516b7613c9f
 38	2672	7843342068591323	external/glfw/src/CMakeFiles/glfw.dir/platform.c.obj	7002db33631cce0
 62	2673	7843342068836346	external/glfw/src/CMakeFiles/glfw.dir/win32_module.c.obj	a13eb89c47d943f4
@@ -31,10 +31,19 @@
 111	4338	7843342069334959	CMakeFiles/staff.dir/external/imgui/imgui_draw.cpp.obj	7a3a996b2773190e
 121	5221	7843342069420051	CMakeFiles/staff.dir/external/imgui/imgui_widgets.cpp.obj	d0a135cc4585e35d
 108	6952	7843342069294966	CMakeFiles/staff.dir/external/imgui/imgui.cpp.obj	128e17c228d961c6
-17	193	7843343463087311	build.ninja	18c5def3ea3db251
-17	193	7843343463087311	C:/Users/jghig/projects/c/staff/out/release/cmake_install.cmake	18c5def3ea3db251
-17	193	7843343463087311	C:/Users/jghig/projects/c/staff/out/release/external/glfw/cmake_install.cmake	18c5def3ea3db251
-17	193	7843343463087311	C:/Users/jghig/projects/c/staff/out/release/external/glfw/src/cmake_install.cmake	18c5def3ea3db251
-17	193	7843343463087311	C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/cmake_install.cmake	18c5def3ea3db251
-15	238	7843343463498313	CMakeFiles/staff.dir/src/main.cc.obj	6e8a12d2c250b5b3
-238	427	7843343465726610	staff.exe	38c88380fe091c04
+17	193	7843349950044356	build.ninja	18c5def3ea3db251
+17	193	7843349949930905	C:/Users/jghig/projects/c/staff/out/release/cmake_install.cmake	18c5def3ea3db251
+17	193	7843349949960832	C:/Users/jghig/projects/c/staff/out/release/external/glfw/cmake_install.cmake	18c5def3ea3db251
+17	193	7843349949990847	C:/Users/jghig/projects/c/staff/out/release/external/glfw/src/cmake_install.cmake	18c5def3ea3db251
+17	193	7843349950000842	C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/cmake_install.cmake	18c5def3ea3db251
+45	511	7843349986558920	external/staff/CMakeFiles/staff_lib.dir/src/internal.cc.obj	ae518a449da794e3
+64	741	7843349986743306	CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj	cb9b645f1e7cd7ef
+40	811	7843349986507901	external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj	1460c5b089e7db5e
+61	947	7843349986723268	CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj	75279c8405d4b96
+54	1701	7843349986647764	CMakeFiles/staff.dir/external/imgui/imgui_tables.cpp.obj	597f3c653f7b79f4
+51	2833	7843349986615647	CMakeFiles/staff.dir/external/imgui/imgui_draw.cpp.obj	79ea179c1a5e6c23
+56	3833	7843349986667375	CMakeFiles/staff.dir/external/imgui/imgui_widgets.cpp.obj	157bae9a158404df
+49	5274	7843349986598657	CMakeFiles/staff.dir/external/imgui/imgui.cpp.obj	d051e2f97f02e3cd
+33	82	7843350141125886	external/staff/libstaff_lib.a	63bf73c94c4b4407
+6	389	7843355396998112	CMakeFiles/staff.dir/src/main.cc.obj	d9322f7cc89a363f
+390	579	7843355400836081	staff.exe	648a51ffcaa1f280

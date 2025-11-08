@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_subdirectory(external/glfw)
+add_subdirectory(external/staff)
+
 add_executable(staff
     src/main.cc
-    src/internal.cc
-    src/api.cc
 
     external/imgui/imgui.cpp
     external/imgui/imgui_draw.cpp
@@ -31,6 +31,7 @@ find_package(OpenGL REQUIRED)
 target_link_libraries(staff PRIVATE
     glfw
     OpenGL::GL
+    staff_lib
 )
 
 if (WIN32)

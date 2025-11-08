@@ -26,3 +26,10 @@ C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/CMakeFiles/list_i
 C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/CMakeFiles/install.dir
 C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/CMakeFiles/install/local.dir
 C:/Users/jghig/projects/c/staff/out/release/external/glfw/docs/CMakeFiles/install/strip.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/staff_lib.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/edit_cache.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/rebuild_cache.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/list_install_components.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/install.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/install/local.dir
+C:/Users/jghig/projects/c/staff/out/release/external/staff/CMakeFiles/install/strip.dir

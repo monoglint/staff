@@ -1,31 +1,32 @@
-#include "imgui.h"
-#include "backends/imgui_impl_glfw.h"
-#include "backends/imgui_impl_opengl3.h"
 #include <GLFW/glfw3.h>
 #include <iostream>
 
-int main() {
-    // -------------------------------
-    // Initialize GLFW
-    // -------------------------------
+#include "imgui.h"
+#include "backends/imgui_impl_glfw.h"
+#include "backends/imgui_impl_opengl3.h"
+
+#include "api.hh"
+
+GLFWwindow* init_glfw() {
     if (!glfwInit()) {
         std::cerr << "Failed to initialize GLFW\n";
-        return 1;
+        return nullptr;
     }
 
-    // Create window
-    GLFWwindow* window = glfwCreateWindow(800, 600, "ImGui Window", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Staff Scheduler", nullptr, nullptr);
     if (!window) {
         std::cerr << "Failed to create GLFW window\n";
         glfwTerminate();
-        return 1;
+        return nullptr;
     }
+
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
 
-    // -------------------------------
-    // Initialize ImGui
-    // -------------------------------
+    return window;
+}
+
+ImGuiIO& init_imgui(GLFWwindow* window) {
     IMGUI_CHECKVERSION();
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
@@ -35,30 +36,37 @@ int main() {
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
 
-    // -------------------------------
-    // Main loop
-    // -------------------------------
+    return io;
+}
+
+void draw_imgui(staff_session& session) {
+    ImGui::Begin("Staff Scheduler");           // Create a window
+    ImGui::Text("Hello World"); // Add some text
+    if (ImGui::Button("Click Me")) {       // Add a button
+        std::cout << "Button clicked!\n";
+    }
+    ImGui::End();
+}
+
+int main() {
+    GLFWwindow* window = init_glfw();
+
+    if (window == nullptr)
+        return 1;
+
+    ImGuiIO& io = init_imgui(window);
+
+    staff_session session("staffsave.ls"); // RAII
+
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
-        // Start ImGui frame
         ImGui_ImplOpenGL3_NewFrame();
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        // -------------------------------
-        // Your ImGui window
-        // -------------------------------
-        ImGui::Begin("Hello ImGui");           // Create a window
-        ImGui::Text("This is a simple window"); // Add some text
-        if (ImGui::Button("Click Me")) {       // Add a button
-            std::cout << "Button clicked!\n";
-        }
-        ImGui::End();
+        draw_imgui(session);
 
-        // -------------------------------
-        // Render
-        // -------------------------------
         ImGui::Render();
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
@@ -70,9 +78,6 @@ int main() {
         glfwSwapBuffers(window);
     }
 
-    // -------------------------------
-    // Cleanup
-    // -------------------------------
     ImGui_ImplOpenGL3_Shutdown();
     ImGui_ImplGlfw_Shutdown();
     ImGui::DestroyContext();
