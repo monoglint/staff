@@ -32,19 +32,14 @@ bool save_state::save() const {
 
     std::stringstream buffer;
 
-    buffer << (uint8_t)name_list.size() << TOK_DELIM;
-    for (const std::string& name : name_list) {
-        buffer << name << TOK_DELIM;
-    }
-
     buffer << (uint8_t)staff_list.size() << TOK_DELIM;
     for (const staff_entry& entry : staff_list) {
-        buffer << (uint8_t)entry.name_id << (uint8_t)entry.availability << (uint8_t)entry.max_lunches << TOK_DELIM;
+        buffer << entry.name << TOK_DELIM << (uint8_t)entry.availability << TOK_DELIM;
     }
 
     buffer << (uint8_t)student_list.size() << TOK_DELIM;
     for (const student_entry& entry : student_list) {
-        buffer << (uint8_t)entry.name_id << (uint8_t)entry.a_day_lunch << (uint8_t)entry.b_day_lunch << TOK_DELIM;
+        buffer << entry.name << TOK_DELIM << (uint8_t)entry.a_day_lunch << (uint8_t)entry.b_day_lunch << TOK_DELIM;
     }
     
     file.write(buffer.str().c_str(), buffer.str().size());
@@ -62,32 +57,25 @@ inline bool string_matches_char(const std::string& str, const char c) {
 static bool parse_token_list(save_state& state, const std::vector<std::string>& token_list) {
     uint16_t ip = 0;
 
-    // Work with identifiers
-    uint8_t identifier_count = token_list[ip++][0];
-    for (int i = 0; i < identifier_count; i++) {
-        state.name_list.push_back(token_list[ip++]);
-    }
-
     uint8_t staff_count = token_list[ip++][0];
     for (int i = 0; i < staff_count; i++) {
-        const std::string& tok = token_list.at(ip++);
+        const std::string& name = token_list.at(ip++);
+        const std::string& metadata = token_list.at(ip++);
 
-        uint8_t b_name = tok[0];
-        uint8_t b_availability = tok[1];
-        uint8_t max_lunches = tok[2];
+        uint8_t b_availability = metadata[0];
 
-        state.append_staff(staff_entry(b_name, (f_period_index)b_availability, max_lunches));
+        state.append_staff(staff_entry(name, (f_period_index)b_availability));
     }
 
     uint8_t student_count = token_list[ip++][0];
     for (int i = 0; i < student_count; i++) {
-        const std::string& tok = token_list[ip++];
+        const std::string& name = token_list[ip++];
+        const std::string& metadata = token_list.at(ip++);
 
-        uint8_t b_name = tok[0];
-        uint8_t b_a_lunch = tok[1];
-        uint8_t b_b_lunch = tok[2];
+        uint8_t b_a_lunch = metadata[0];
+        uint8_t b_b_lunch = metadata[1];
 
-        state.append_student(student_entry(b_name, (e_lunch_period)b_a_lunch, (e_lunch_period)b_b_lunch));
+        state.append_student(student_entry(name, (e_lunch_period)b_a_lunch, (e_lunch_period)b_b_lunch));
     }
 
     return true;

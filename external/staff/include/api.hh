@@ -11,18 +11,17 @@ const uint8_t MAX_ENTRIES = 250;
 
 struct period_selection {
     period_selection() {}
-    period_selection(t_name_id_list&& staff_list, t_name_id_list&& student_list)
+    period_selection(t_name_list&& staff_list, t_name_list&& student_list)
         : staff_list(std::move(staff_list)), student_list(std::move(student_list)) {}
 
-    t_name_id_list staff_list;
-    t_name_id_list student_list;
+    t_name_list staff_list;
+    t_name_list student_list;
 };
 
 using t_period_selection_list = std::vector<period_selection>;
 
 // For exporting
 struct distribution_export {
-    t_name_list name_list;
     t_period_selection_list period_selection_list;
 
     // Whether all periods with students have at least one teacher.
@@ -47,92 +46,39 @@ struct staff_session {
     std::stringstream print_distribution_export(const distribution_export& distr) const;
     std::stringstream print_distribution_export() const;
     std::stringstream print_state() const;
-    std::stringstream print_debug_state() const;
 
-    enum class e_add_staff_code {
-        SUCCESS,
-        EXCEEDED_MAX,
-    };
-
-    inline e_add_staff_code add_staff(const std::string& name, const uint8_t max_lunches, const std::unordered_set<e_period_index>& available_periods) {
-        if (state.name_list.size() >= MAX_ENTRIES || state.staff_list.size() >= MAX_ENTRIES)
-            return e_add_staff_code::EXCEEDED_MAX;
-        
-        f_period_index availability = f_period_index::NONE;
-
-        for (const e_period_index period_index : available_periods) {
-            availability = availability | enum_to_flag<e_period_index, f_period_index>(period_index);
-        }
-
-        state.append_staff(
-            staff_entry(
-                state.add_or_find_name(name),
-                availability,
-                max_lunches
-            )
+    inline t_entry_id add_staff(const std::string& name, const f_period_index availability) {
+        state.staff_list.emplace_back(
+            name,
+            availability
         );
 
-        return e_add_staff_code::SUCCESS;
+        return state.staff_list.size() - 1;
     }
 
-    enum class e_add_student_code {
-        SUCCESS,
-        EXCEEDED_MAX,
-    };
+    inline void remove_staff(const t_entry_id id) {
+        state.staff_list.erase(state.staff_list.begin() + id);
+    }
 
-    inline e_add_student_code add_student(const std::string& name, const e_lunch_period a_day_lunch, const e_lunch_period b_day_lunch) {
-        if (state.name_list.size() >= MAX_ENTRIES || state.student_list.size() >= MAX_ENTRIES)
-            return e_add_student_code::EXCEEDED_MAX;
-
-        state.append_student(
-            student_entry(
-                state.add_or_find_name(name),
-                a_day_lunch,
-                b_day_lunch
-            )
+    inline t_entry_id add_student(const std::string& name, const e_lunch_period a_day_lunch, const e_lunch_period b_day_lunch) {
+        state.student_list.emplace_back(
+            name,
+            a_day_lunch,
+            b_day_lunch
         );
 
-        return e_add_student_code::SUCCESS;
+        return state.student_list.size() - 1;
     }
 
-    inline void edit_staff(const std::string& name, const std::unordered_set<e_period_index>& available_periods) {
-        std::cout << "NOT IMPLEMENTED\n";
+    inline void remove_student(const t_entry_id id) {
+        state.student_list.erase(state.student_list.begin() + id);
     }
 
-    inline void edit_student(const std::string& name, const e_lunch_period a_day_lunch, const e_lunch_period b_day_lunch) {
-        std::cout << "NOT IMPLEMENTED\n";
+    inline staff_entry& get_staff(const t_entry_id id) {
+        return state.staff_list[id];
     }
 
-    enum class e_remove_code {
-        SUCCESS,
-        NO_MATCHING_NAME,
-    };
-
-    // Erase any entries that match the given name.
-    template <e_entry_type TYPE>
-    inline e_remove_code remove(const std::string& name) {
-        const t_name_list::iterator& name_id_iterator = std::find(state.name_list.begin(), state.name_list.end(), name);
-
-        if (name_id_iterator == state.name_list.end())
-            return e_remove_code::NO_MATCHING_NAME;
-
-        const t_name_id name_id = std::distance(state.name_list.begin(), name_id_iterator);
-
-        if constexpr (TYPE == e_entry_type::STAFF)
-            for (t_staff_list::iterator it = state.staff_list.begin(); it != state.staff_list.end();) {
-                if (it->name_id == name_id)
-                    it = state.staff_list.erase(it);
-                else
-                    it++;
-            }
-        else
-            for (t_student_list::iterator it = state.student_list.begin(); it != state.student_list.end();) {
-                if (it->name_id == name_id)
-                    it = state.student_list.erase(it);
-                else
-                    it++;
-            }
-
-        return e_remove_code::SUCCESS;
+    inline student_entry& get_student(const t_entry_id id) {
+        return state.student_list[id];
     }
 };

@@ -2,15 +2,15 @@
 
 #include "api.hh"
 
-static inline void append_student_to_export(distribution_export& distr, t_period_index_list& periods_with_students_list, t_name_id student_name_id, e_period_index period_index) {
-    distr.period_selection_list[(t_period_index_base)period_index].student_list.push_back(student_name_id);
+static inline void append_student_to_export(distribution_export& distr, t_period_index_list& periods_with_students_list, const std::string& student_name, const e_period_index period_index) {
+    distr.period_selection_list[(t_period_index_base)period_index].student_list.push_back(student_name);
     
     if (std::find(periods_with_students_list.begin(), periods_with_students_list.end(), period_index) == periods_with_students_list.end())
         periods_with_students_list.push_back(period_index);
 }
 
-static inline bool is_period_schedulable(const t_name_id_list& selected_staff_list, const f_period_index period_as_flag, const staff_entry& staff_entry) {
-    return flag_match(staff_entry.availability, period_as_flag) && std::find(selected_staff_list.begin(), selected_staff_list.end(), staff_entry.name_id) == selected_staff_list.end();
+static inline bool is_period_schedulable(const t_name_list& selected_staff_list, const f_period_index period_as_flag, const staff_entry& staff_entry) {
+    return flag_match(staff_entry.availability, period_as_flag) && std::find(selected_staff_list.begin(), selected_staff_list.end(), staff_entry.name) == selected_staff_list.end();
 }
 /*
 
@@ -31,7 +31,7 @@ void fill_staff_pass1(const save_state& state, distribution_export& distr, t_per
 
         for (const e_period_index period : periods_with_students_list) {
             const f_period_index period_as_flag = enum_to_flag<e_period_index, f_period_index>(period);
-            t_name_id_list& selected_staff_list = distr.period_selection_list[(size_t)period].staff_list;
+            t_name_list& selected_staff_list = distr.period_selection_list[(size_t)period].staff_list;
 
             for (t_staff_list::iterator it = staff_list_copy.begin(); it != staff_list_copy.end();) {
                 // If the staff isn't available or already is scheduled in the given lunch block.
@@ -40,11 +40,9 @@ void fill_staff_pass1(const save_state& state, distribution_export& distr, t_per
                     continue;
                 }
 
-                selected_staff_list.push_back(it->name_id);
+                selected_staff_list.push_back(it->name);
 
-                it->max_lunches--;
-                if (it->max_lunches == 0)
-                    it = staff_list_copy.erase(it);
+                it = staff_list_copy.erase(it);
 
                 break;
             }
@@ -84,17 +82,17 @@ void fill_staff_pass2(const save_state& state, distribution_export& distr, t_per
             if (donor_period.staff_list.size() < 2) continue;
 
             // try to move one staff member who's available for the target
-            for (t_name_id_list::iterator it = donor_period.staff_list.begin(); it != donor_period.staff_list.end(); ++it) {
-                const t_name_id name_id = *it;
+            for (t_name_list::iterator it = donor_period.staff_list.begin(); it != donor_period.staff_list.end(); ++it) {
+                const std::string& name = *it;
 
                 const auto& staff_it = std::find_if(
                     state.staff_list.begin(), state.staff_list.end(),
-                    [&](const staff_entry& s){ return s.name_id == name_id; }
+                    [&](const staff_entry& s){ return s.name == name; }
                 );
                 if (staff_it == state.staff_list.end()) continue;
 
                 if (flag_match(staff_it->availability, target_flag)) {
-                    target_period.staff_list.push_back(name_id);
+                    target_period.staff_list.push_back(name);
                     donor_period.staff_list.erase(it);
                     goto next_period; // move to next empty period
                 }
@@ -104,10 +102,23 @@ void fill_staff_pass2(const save_state& state, distribution_export& distr, t_per
     }
 }
 
+/* 
+    The final pass erases extra staff members until there is on left in each block
+
+    Later refactor so staff with a larger number of spots in other lunches get removed first.
+*/
+void fill_staff_pass3(const save_state& state, distribution_export& distr, t_period_index_list& periods_with_students_list) {
+    for (const e_period_index target_period_index : periods_with_students_list) {
+        period_selection& target_period = distr.period_selection_list[(size_t)target_period_index];
+        
+        target_period.staff_list.resize(1);
+        target_period.staff_list.shrink_to_fit();
+    }
+}
+
 distribution_export staff_session::generate_distribution_export() const {
     distribution_export distr;
 
-    distr.name_list = state.name_list;
     distr.period_selection_list.resize((size_t)e_period_index::_MAX);
 
     // Keep track of the list of periods that have students in them.
@@ -116,24 +127,23 @@ distribution_export staff_session::generate_distribution_export() const {
     for (t_entry_id student_id = 0; student_id < state.student_list.size(); student_id++) {
         const student_entry& entry = state.student_list[student_id];
 
-        append_student_to_export(distr, periods_with_students_list, entry.name_id, (e_period_index)entry.a_day_lunch);
+        append_student_to_export(distr, periods_with_students_list, entry.name, (e_period_index)entry.a_day_lunch);
         append_student_to_export(
             distr,
             periods_with_students_list,
-            entry.name_id,
+            entry.name,
             (e_period_index)((t_period_index_base)entry.b_day_lunch + ADD_CONSTANT)
         );
     }
 
     fill_staff_pass1(state, distr, periods_with_students_list);
     fill_staff_pass2(state, distr, periods_with_students_list);
+    // fill_staff_pass3(state, distr, periods_with_students_list);
 
-    // transparency note: minor ai help with discovery of std::all_of
     distr.are_all_periods_covered = std::all_of(
-        periods_with_students_list.begin(),
-        periods_with_students_list.end(),
-        [&](e_period_index period) {
-            const period_selection& slot = distr.period_selection_list[(size_t)period];
+        distr.period_selection_list.begin(),
+        distr.period_selection_list.end(),
+        [&](const period_selection& slot) {
             return !slot.student_list.empty() ? !slot.staff_list.empty() : true;
         }
     );
@@ -180,13 +190,13 @@ std::stringstream staff_session::print_distribution_export(const distribution_ex
         const period_selection& period = distr.period_selection_list[period_selection_list_index];
         
         buffer << "\t\tStaff:\n";
-        for (const t_name_id name_id : period.staff_list) {
-            buffer << "\t\t\t" << distr.name_list[name_id] << '\n';
+        for (const std::string& name : period.staff_list) {
+            buffer << "\t\t\t" << name << '\n';
         }
 
         buffer << "\t\tStudents:\n";
-        for (const t_name_id name_id : period.student_list) {
-            buffer << "\t\t\t" << distr.name_list[name_id] << '\n';
+        for (const std::string& name : period.student_list) {
+            buffer << "\t\t\t" << name << '\n';
         }
     }
 
@@ -198,32 +208,18 @@ std::stringstream staff_session::print_state() const {
     
     buffer << "Staff List:\n";
     for (const staff_entry& entry : state.staff_list) { 
-        buffer << "    Name:            " << state.name_list[entry.name_id] << '\n';
+        buffer << "    Name:            " << entry.name << '\n';
         buffer << "    Availability:    " << to_string(entry.availability) << '\n';
-        buffer << "    Days Available:  " << std::to_string(entry.max_lunches) << '\n';
         buffer << '\n';
     }
 
     buffer << "Student List:\n";
     for (const student_entry& entry : state.student_list) { 
-        buffer << "    Name:             " << state.name_list[entry.name_id] << '\n';
+        buffer << "    Name:             " << entry.name << '\n';
         buffer << "    A Day Lunch:      " << to_string(entry.a_day_lunch) << '\n';
         buffer << "    B Day Lunch:      " << to_string(entry.b_day_lunch) << '\n';
         buffer << '\n';
     }
-
-    return buffer;
-}
-
-std::stringstream staff_session::print_debug_state() const {
-    std::stringstream buffer;
-
-    buffer << "NAMES:\n";
-    for (const std::string& identifier : state.name_list) { 
-        buffer << "NAME: " << identifier << '\n';
-    }
-
-    buffer << print_state().str();
 
     return buffer;
 }

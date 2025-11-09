@@ -9,12 +9,18 @@ add_subdirectory(external/glfw)
 add_subdirectory(external/staff)
 
 add_executable(staff
+    resources/resources.rc
+    
     src/main.cc
+    src/imgui_spectrum.cc
 
     external/imgui/imgui.cpp
     external/imgui/imgui_draw.cpp
     external/imgui/imgui_tables.cpp
     external/imgui/imgui_widgets.cpp
+
+    # optional helper to use ImGui::InputText with std::string
+    external/imgui/misc/cpp/imgui_stdlib.cpp
 
     external/imgui/backends/imgui_impl_glfw.cpp
     external/imgui/backends/imgui_impl_opengl3.cpp
@@ -22,6 +28,7 @@ add_executable(staff
 
 target_include_directories(staff PRIVATE
     ${CMAKE_SOURCE_DIR}/include
+    ${CMAKE_SOURCE_DIR}/external/
     ${CMAKE_SOURCE_DIR}/external/imgui
     ${CMAKE_SOURCE_DIR}/external/imgui/backends
 )

@@ -5879,13 +5879,20 @@ void ImGui::RenderBullet(ImDrawList* draw_list, ImVec2 pos, ImU32 col)
 
 void ImGui::RenderCheckMark(ImDrawList* draw_list, ImVec2 pos, ImU32 col, float sz)
 {
-    float thickness = ImMax(sz / 5.0f, 1.0f);
+    float SCALE = 0.618;
+
+    float thickness = ImMax(sz / 5.0f, 1.0f) * SCALE;
     sz -= thickness * 0.5f;
+
+    float scaled_sz = sz * SCALE;
+
+    pos += ImVec2((sz - scaled_sz) * 0.5f, (sz - scaled_sz) * 0.5f);
+
     pos += ImVec2(thickness * 0.25f, thickness * 0.25f);
 
-    float third = sz / 3.0f;
+    float third = scaled_sz / 3.0f;
     float bx = pos.x + third;
-    float by = pos.y + sz - third * 0.5f;
+    float by = pos.y + scaled_sz - third * 0.5f;
     draw_list->PathLineTo(ImVec2(bx - third, by - third));
     draw_list->PathLineTo(ImVec2(bx, by));
     draw_list->PathLineTo(ImVec2(bx + third * 2.0f, by - third * 2.0f));

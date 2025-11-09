@@ -49,59 +49,82 @@ cmake_ninja_workdir = C$:/Users/jghig/projects/c/staff/out/release/
 
 build cmake_object_order_depends_target_staff: phony || cmake_object_order_depends_target_glfw cmake_object_order_depends_target_staff_lib
 
+build CMakeFiles/staff.dir/resources/resources.rc.obj: RC_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/resources/resources.rc || cmake_object_order_depends_target_staff
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\staff.dir\resources\resources.rc.obj.d
+  INCLUDES = -I C:/Users/jghig/projects/c/staff/include -I C:/Users/jghig/projects/c/staff/external -I C:/Users/jghig/projects/c/staff/external/imgui -I C:/Users/jghig/projects/c/staff/external/imgui/backends -I C:/Users/jghig/projects/c/staff/external/glfw/include -I C:/Users/jghig/projects/c/staff/external/staff/include
+  OBJECT_DIR = CMakeFiles\staff.dir
+  OBJECT_FILE_DIR = CMakeFiles\staff.dir\resources
+
 build CMakeFiles/staff.dir/src/main.cc.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/src/main.cc || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\src\main.cc.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  OBJECT_DIR = CMakeFiles\staff.dir
+  OBJECT_FILE_DIR = CMakeFiles\staff.dir\src
+
+build CMakeFiles/staff.dir/src/imgui_spectrum.cc.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/src/imgui_spectrum.cc || cmake_object_order_depends_target_staff
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\staff.dir\src\imgui_spectrum.cc.obj.d
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\src
 
 build CMakeFiles/staff.dir/external/imgui/imgui.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/imgui.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\imgui.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui
 
 build CMakeFiles/staff.dir/external/imgui/imgui_draw.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/imgui_draw.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\imgui_draw.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui
 
 build CMakeFiles/staff.dir/external/imgui/imgui_tables.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/imgui_tables.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\imgui_tables.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui
 
 build CMakeFiles/staff.dir/external/imgui/imgui_widgets.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/imgui_widgets.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\imgui_widgets.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui
+
+build CMakeFiles/staff.dir/external/imgui/misc/cpp/imgui_stdlib.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/misc/cpp/imgui_stdlib.cpp || cmake_object_order_depends_target_staff
+  CONFIG = Release
+  DEP_FILE = CMakeFiles\staff.dir\external\imgui\misc\cpp\imgui_stdlib.cpp.obj.d
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  OBJECT_DIR = CMakeFiles\staff.dir
+  OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui\misc\cpp
 
 build CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/backends/imgui_impl_glfw.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\backends\imgui_impl_glfw.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui\backends
 
 build CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj: CXX_COMPILER__staff_unscanned_Release C$:/Users/jghig/projects/c/staff/external/imgui/backends/imgui_impl_opengl3.cpp || cmake_object_order_depends_target_staff
   CONFIG = Release
   DEP_FILE = CMakeFiles\staff.dir\external\imgui\backends\imgui_impl_opengl3.cpp.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
-  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
+  INCLUDES = -IC:/Users/jghig/projects/c/staff/include -IC:/Users/jghig/projects/c/staff/external -IC:/Users/jghig/projects/c/staff/external/imgui -IC:/Users/jghig/projects/c/staff/external/imgui/backends -IC:/Users/jghig/projects/c/staff/external/glfw/include -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = CMakeFiles\staff.dir
   OBJECT_FILE_DIR = CMakeFiles\staff.dir\external\imgui\backends
 
@@ -113,9 +136,9 @@ build CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj: C
 #############################################
 # Link the executable staff.exe
 
-build staff.exe: CXX_EXECUTABLE_LINKER__staff_Release CMakeFiles/staff.dir/src/main.cc.obj CMakeFiles/staff.dir/external/imgui/imgui.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_draw.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_tables.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_widgets.cpp.obj CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj | external/glfw/src/libglfw3.a external/staff/libstaff_lib.a || external/glfw/src/libglfw3.a external/staff/libstaff_lib.a
+build staff.exe: CXX_EXECUTABLE_LINKER__staff_Release CMakeFiles/staff.dir/resources/resources.rc.obj CMakeFiles/staff.dir/src/main.cc.obj CMakeFiles/staff.dir/src/imgui_spectrum.cc.obj CMakeFiles/staff.dir/external/imgui/imgui.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_draw.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_tables.cpp.obj CMakeFiles/staff.dir/external/imgui/imgui_widgets.cpp.obj CMakeFiles/staff.dir/external/imgui/misc/cpp/imgui_stdlib.cpp.obj CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_glfw.cpp.obj CMakeFiles/staff.dir/external/imgui/backends/imgui_impl_opengl3.cpp.obj | external/glfw/src/libglfw3.a external/staff/libstaff_lib.a || external/glfw/src/libglfw3.a external/staff/libstaff_lib.a
   CONFIG = Release
-  FLAGS = -O2 -static-libgcc -static-libstdc++
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows
   LINK_FLAGS = -static -static-libgcc -static-libstdc++
   LINK_LIBRARIES = external/glfw/src/libglfw3.a  -lopengl32  external/staff/libstaff_lib.a  -lopengl32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\staff.dir
@@ -663,7 +686,7 @@ build cmake_object_order_depends_target_staff_lib: phony || .
 build external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj: CXX_COMPILER__staff_lib_unscanned_Release C$:/Users/jghig/projects/c/staff/external/staff/src/api.cc || cmake_object_order_depends_target_staff_lib
   CONFIG = Release
   DEP_FILE = external\staff\CMakeFiles\staff_lib.dir\src\api.cc.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
   INCLUDES = -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = external\staff\CMakeFiles\staff_lib.dir
   OBJECT_FILE_DIR = external\staff\CMakeFiles\staff_lib.dir\src
@@ -671,7 +694,7 @@ build external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj: CXX_COMPILER__staf
 build external/staff/CMakeFiles/staff_lib.dir/src/internal.cc.obj: CXX_COMPILER__staff_lib_unscanned_Release C$:/Users/jghig/projects/c/staff/external/staff/src/internal.cc || cmake_object_order_depends_target_staff_lib
   CONFIG = Release
   DEP_FILE = external\staff\CMakeFiles\staff_lib.dir\src\internal.cc.obj.d
-  FLAGS = -O2 -static-libgcc -static-libstdc++ -std=c++17
+  FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows -std=c++17
   INCLUDES = -IC:/Users/jghig/projects/c/staff/external/staff/include
   OBJECT_DIR = external\staff\CMakeFiles\staff_lib.dir
   OBJECT_FILE_DIR = external\staff\CMakeFiles\staff_lib.dir\src
@@ -686,7 +709,7 @@ build external/staff/CMakeFiles/staff_lib.dir/src/internal.cc.obj: CXX_COMPILER_
 
 build external/staff/libstaff_lib.a: CXX_STATIC_LIBRARY_LINKER__staff_lib_Release external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj external/staff/CMakeFiles/staff_lib.dir/src/internal.cc.obj
   CONFIG = Release
-  LANGUAGE_COMPILE_FLAGS = -O2 -static-libgcc -static-libstdc++
+  LANGUAGE_COMPILE_FLAGS = -O2 -static-libgcc -static-libstdc++ -mwindows
   OBJECT_DIR = external\staff\CMakeFiles\staff_lib.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
