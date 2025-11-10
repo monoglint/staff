@@ -1,0 +1,1 @@
+An extremely simple ImGui based app that allows you to insert student, staff, and their scheduling to distribute them into a schedule. At most one staff member will be assigned to a given lunch block, and the program will try to fill in as many lunch blocks where there are students as possible.
