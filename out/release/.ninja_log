@@ -98,3 +98,6 @@
 20	716	7846199354623185	external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj	fb2066da85f913ff
 716	779	7846199361585939	external/staff/libstaff_lib.a	1e15063d086700fa
 779	978	7846199362211017	staff.exe	25f0920b8b3cff23
+32	713	7846202616105651	external/staff/CMakeFiles/staff_lib.dir/src/api.cc.obj	fb2066da85f913ff
+713	778	7846202622915354	external/staff/libstaff_lib.a	1e15063d086700fa
+778	966	7846202623567060	staff.exe	25f0920b8b3cff23

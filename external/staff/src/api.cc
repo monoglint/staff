@@ -141,7 +141,7 @@ distribution_export staff_session::generate_distribution_export() const {
 
     fill_staff_pass1(state, distr, periods_with_students_list);
     fill_staff_pass2(state, distr, periods_with_students_list);
-    // fill_staff_pass3(state, distr, periods_with_students_list);
+    fill_staff_pass3(state, distr, periods_with_students_list);
 
     distr.are_all_periods_covered = std::all_of(
         distr.period_selection_list.begin(),
