@@ -1,6 +1,7 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 
 #include <GLFW/glfw3.h>
+#include <bitset>
 
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_glfw.h"
@@ -73,6 +74,7 @@ constexpr ImGuiWindowFlags WINDOW_FLAGS = ImGuiWindowFlags_None
 ;
 
 constexpr ImGuiTableFlags TABLE_FLAGS = ImGuiTableFlags_None
+    | ImGuiTableFlags_BordersV
 ;
 
 static GLFWwindow* init_glfw() {
@@ -125,19 +127,19 @@ start_staff:
         goto start_students;
     }
     
-    if (!ImGui::BeginTable("##Staff", 7, TABLE_FLAGS)) {
+    if (!ImGui::BeginTable("##Staff", 3, TABLE_FLAGS)) {
         ImGui::EndTable();
         ImGui::End();
         return;
     }
 
-    ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthStretch, NAME_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("AA", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("AB", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("AC", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("BA", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("BB", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
-    ImGui::TableSetupColumn("BC", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH);
+    {
+        const ImGuiStyle style = ImGui::GetStyle();
+
+        ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthStretch, NAME_COLUMN_WIDTH);
+        ImGui::TableSetupColumn("A Day", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH * 3 + (style.ItemSpacing.x * 2));
+        ImGui::TableSetupColumn("B Day", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH * 3 + (style.ItemSpacing.x * 2));
+    }
 
     ImGui::TableHeadersRow();
 
@@ -150,6 +152,8 @@ start_staff:
         ImGui::SetNextItemWidth(ImGui::GetColumnWidth());
         ImGui::InputText((std::string("##Name") + std::to_string(entry_id)).c_str(), &entry.name, 0, 0);
 
+        remove_delim_in_string(entry.name);
+
         if (ImGui::BeginPopupContextItem((std::string("##Context") + std::to_string(entry_id)).c_str())) {
             if (ImGui::MenuItem("Remove")) {
                 session.remove_staff(entry_id);
@@ -161,14 +165,17 @@ start_staff:
         }
 
         for (t_period_index_base i = 0; i < (t_period_index_base)e_period_index::_MAX; i++) {
-            ImGui::TableNextColumn();
+            if (i % 3 == 0)
+                ImGui::TableNextColumn();
+            else
+                ImGui::SameLine();
 
             e_period_index as_enum = (e_period_index)i;
             f_period_index as_flag = enum_to_flag<e_period_index, f_period_index>(as_enum);
 
             bool active = flag_match(entry.availability, as_flag);
 
-            ImGui::SetNextItemWidth(ImGui::GetColumnWidth());
+            ImGui::SetNextItemWidth(BOX_COLUMN_WIDTH);
             if (ImGui::Checkbox((std::string("##Period") + std::to_string(entry_id) + std::to_string(i)).c_str(), &active)) {
                 if (active)
                     entry.availability = entry.availability | as_flag;
@@ -223,6 +230,8 @@ start_students:
         ImGui::TableSetColumnIndex(0);
         ImGui::SetNextItemWidth(ImGui::GetColumnWidth());
         ImGui::InputText((std::string("##Name") + std::to_string(entry_id)).c_str(), &entry.name, 0, 0);
+
+        remove_delim_in_string(entry.name);
        
         if (ImGui::BeginPopupContextItem((std::string("##Context") + std::to_string(entry_id)).c_str())) {
             if (ImGui::MenuItem("Remove")) {

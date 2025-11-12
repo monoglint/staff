@@ -28,11 +28,11 @@ namespace themes {
 
             style.WindowPadding = ImVec2(16.0f, 16.0f);
             style.FramePadding = ImVec2(16.0f, 8.0f);
-            style.ItemSpacing = ImVec2(4.0f, 8.0f);
-            style.CellPadding = ImVec2(4.0f, 4.0f);
+            style.ItemSpacing = ImVec2(8.0f, 8.0f);
+            style.CellPadding = ImVec2(8.0f, 4.0f);
             style.ItemInnerSpacing = ImVec2(4.0f, 4.0f);
             style.TitleBarPadding = ImVec2(16.0f, 12.0f);
-
+            
             style.ScrollbarSize = 8;
             style.ScrollbarPadding = 32;
 
@@ -87,7 +87,7 @@ namespace themes {
             colors[ImGuiCol_TabDimmedSelected] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::BLUE700);
             colors[ImGuiCol_TableHeaderBg] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY100);
             colors[ImGuiCol_TableRowBg] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY100);
-            colors[ImGuiCol_TableRowBgAlt] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY100);
+            colors[ImGuiCol_TableRowBgAlt] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY75);
             colors[ImGuiCol_TableBorderStrong] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY200);
             colors[ImGuiCol_TableBorderLight] = ImGui::ColorConvertU32ToFloat4(spectrum_dark::GRAY200);
         }

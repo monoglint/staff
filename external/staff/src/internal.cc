@@ -1,5 +1,7 @@
 #include "internal.hh"
 
+#include <bitset>
+
 /*
 
 File file format
@@ -42,6 +44,13 @@ bool save_state::save() const {
         buffer << entry.name << TOK_DELIM << (uint8_t)entry.a_day_lunch << (uint8_t)entry.b_day_lunch << TOK_DELIM;
     }
     
+    std::cout << "SAVE FILE:\n";
+    std::string new_str = buffer.str();
+    
+    for (const char c : new_str) {
+        std::cout << std::bitset<8>((uint8_t)c).to_string() << " (" << c << ")" << '\n';
+    }
+
     file.write(buffer.str().c_str(), buffer.str().size());
 
     return true;
@@ -61,6 +70,8 @@ static bool parse_token_list(save_state& state, const std::vector<std::string>& 
     for (int i = 0; i < staff_count; i++) {
         const std::string& name = token_list.at(ip++);
         const std::string& metadata = token_list.at(ip++);
+
+        std::cout << "LOAD " << name << " " << std::bitset<8>((uint8_t)metadata[0]) << '\n';
 
         uint8_t b_availability = metadata[0];
 

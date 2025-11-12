@@ -13,7 +13,16 @@
 
 // Save states are a tiny bit fragile - limits are enforced in api.hh
 
-constexpr uint8_t TOK_DELIM = '\x1e'; // this is not a token, it delimits them
+constexpr uint8_t TOK_DELIM = '~'; // this is not a token, it delimits them
+
+inline void remove_delim_in_string(std::string& str) {
+    for (std::string::iterator it = str.begin(); it != str.end();) {
+        if (*it == TOK_DELIM)
+            it = str.erase(it);
+        else
+            ++it;
+    }
+}
 
 enum class e_lunch_period : uint8_t {
     A,
@@ -132,10 +141,6 @@ struct save_state {
         if (!success) {
             std::cout << "First open - Generating new empty file.\n";
         }
-    }
-
-    ~save_state() {
-        save();
     }
 
     std::string file_name;
