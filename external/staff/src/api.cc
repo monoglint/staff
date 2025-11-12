@@ -1,4 +1,5 @@
 #include <optional>
+#include <fstream>
 
 #include "api.hh"
 
@@ -111,6 +112,8 @@ void fill_staff_pass3(const save_state& state, distribution_export& distr, t_per
     for (const e_period_index target_period_index : periods_with_students_list) {
         period_selection& target_period = distr.period_selection_list[(size_t)target_period_index];
         
+        if (target_period.staff_list.size() <= 1)
+            continue;
         target_period.staff_list.resize(1);
         target_period.staff_list.shrink_to_fit();
     }
@@ -149,6 +152,48 @@ distribution_export staff_session::generate_distribution_export() const {
     );
 
     return distr;
+}
+
+void staff_session::export_csv(const std::string& file_path) const {
+    std::ofstream out(file_path);
+
+    if (!out.is_open()) {
+        return;
+    }
+
+    const distribution_export distr = generate_distribution_export();
+
+    out << "Period,Staff,Students\n";
+    for (uint8_t period_selection_list_index = 0; period_selection_list_index < distr.period_selection_list.size(); period_selection_list_index++) {
+        std::string header;
+        switch (period_selection_list_index) {
+            case 0:
+                header = "AA";
+                break;
+            case 1:
+                header = "AB";
+                break;
+            case 2:
+                header = "AC";
+                break;
+            case 3:
+                header = "BA";
+                break;
+            case 4:
+                header = "BB";
+                break;
+            case 5:
+                header = "BC";
+                break;
+        }
+
+        const period_selection& period = distr.period_selection_list[period_selection_list_index];
+        const std::string staff_name = (period.staff_list.size() > 0) ? period.staff_list.at(0) : "[None]";
+
+        for (const std::string& student_name : period.student_list) {
+            out << header << "," << staff_name << "," << student_name << '\n';
+        }
+    }
 }
 
 std::stringstream staff_session::print_distribution_export() const {

@@ -41,6 +41,8 @@ struct staff_session {
 
     save_state state;
 
+    void export_csv(const std::string& file_path) const;
+
     distribution_export generate_distribution_export() const;
 
     std::stringstream print_distribution_export(const distribution_export& distr) const;

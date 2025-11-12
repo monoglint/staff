@@ -12,6 +12,7 @@ add_executable(staff
     resources/resources.rc
     
     src/main.cc
+    src/save_file.cc
     src/imgui_spectrum.cc
 
     external/imgui/imgui.cpp

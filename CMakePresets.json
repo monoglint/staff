@@ -13,9 +13,9 @@
             "binaryDir": "${sourceDir}/out/release",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
-                "CMAKE_CXX_FLAGS_RELEASE": "-O2 -static-libgcc -static-libstdc++ -mwindows",
-                "CMAKE_EXE_LINKER_FLAGS": "-static -static-libgcc -static-libstdc++"
+                "CMAKE_CXX_COMPILER": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+                "CMAKE_CXX_FLAGS_RELEASE": "-O2 -static-libstdc++ -mwindows",
+                "CMAKE_EXE_LINKER_FLAGS": "-static -static-libstdc++"
             }
         },
 
@@ -26,9 +26,9 @@
             "binaryDir": "${sourceDir}/out/debug",
             "cacheVariables": {
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_CXX_COMPILER": "C:\\msys64\\mingw64\\bin\\g++.exe",
-                "CMAKE_CXX_FLAGS_DEBUG": "-static-libgcc -static-libstdc++ -mwindows",
-                "CMAKE_EXE_LINKER_FLAGS": "-static-libgcc -static-libstdc++"
+                "CMAKE_CXX_COMPILER": "C:\\msys64\\ucrt64\\bin\\g++.exe",
+                "CMAKE_CXX_FLAGS_DEBUG": "-static-libstdc++ -mwindows",
+                "CMAKE_EXE_LINKER_FLAGS": "-static-libstdc++"
             }
         }
     ],

@@ -1,41 +1,18 @@
 #pragma once
 
 /*
-Color definitions in ImGui are a good starting point, 
-but do not cover all the intricacies of Spectrum's possible colors
-in controls and widgets. 
 
-One big difference is that ImGui communicates widget activity 
-(hover, pressed) with their background, while spectrum uses a mix
-of background and border, with border being the most common choice.
+modified by monoglint
 
-Because of this, we reference extra colors in spectrum from 
-imgui.cpp and imgui_widgets.cpp directly, and to make that work, 
-we need to have them defined at here at compile time. 
 */
 
-/// Pick one, or have one defined already.
-#if !defined(SPECTRUM_USE_LIGHT_THEME) && !defined(SPECTRUM_USE_DARK_THEME)
-#define SPECTRUM_USE_DARK_THEME
-#endif
-
-namespace ImGui {
-    namespace Spectrum {
-        // a list of changes introduced to change the look of the widgets. 
-        // Collected here as const rather than being magic numbers spread 
-        // around imgui.cpp and imgui_widgets.cpp.
-        const float CHECKBOX_BORDER_SIZE = 2.0f;
-        const float CHECKBOX_ROUNDING = 2.0f;
-
-        // Load SourceSansProRegular and sets it as a default font.
-        // You may want to call ImGui::GetIO().Fonts->Clear() before this
-        void LoadFont(float size = 16.0f);
-
+namespace themes {
+    namespace spectrum_dark {
         // Sets the ImGui style to Spectrum
-        void StyleColorsSpectrum();
+        void load();
 
         namespace { // Unnamed namespace, since we only use this here. 
-            unsigned int Color(unsigned int c) {
+            unsigned int color(unsigned int c) {
                 // add alpha.
                 // also swap red and blue channel for some reason.
                 // todo: figure out why, and fix it.
@@ -55,158 +32,96 @@ namespace ImGui {
             return ((alpha & 0xFF) << 24) | (c & 0x00FFFFFF);
         }
 
-        namespace Static { // static colors
+        namespace static_colors { // static colors
             const unsigned int NONE = 0x00000000; // transparent
-            const unsigned int WHITE = Color(0xFFFFFF);
-            const unsigned int BLACK = Color(0x000000);
-            const unsigned int GRAY200 = Color(0xF4F4F4);
-            const unsigned int GRAY300 = Color(0xEAEAEA);
-            const unsigned int GRAY400 = Color(0xD3D3D3);
-            const unsigned int GRAY500 = Color(0xBCBCBC);
-            const unsigned int GRAY600 = Color(0x959595);
-            const unsigned int GRAY700 = Color(0x767676);
-            const unsigned int GRAY800 = Color(0x505050);
-            const unsigned int GRAY900 = Color(0x323232);
-            const unsigned int BLUE400 = Color(0x378EF0);
-            const unsigned int BLUE500 = Color(0x2680EB);
-            const unsigned int BLUE600 = Color(0x1473E6);
-            const unsigned int BLUE700 = Color(0x0D66D0);
-            const unsigned int RED400 = Color(0xEC5B62);
-            const unsigned int RED500 = Color(0xE34850);
-            const unsigned int RED600 = Color(0xD7373F);
-            const unsigned int RED700 = Color(0xC9252D);
-            const unsigned int ORANGE400 = Color(0xF29423);
-            const unsigned int ORANGE500 = Color(0xE68619);
-            const unsigned int ORANGE600 = Color(0xDA7B11);
-            const unsigned int ORANGE700 = Color(0xCB6F10);
-            const unsigned int GREEN400 = Color(0x33AB84);
-            const unsigned int GREEN500 = Color(0x2D9D78);
-            const unsigned int GREEN600 = Color(0x268E6C);
-            const unsigned int GREEN700 = Color(0x12805C);
+            const unsigned int WHITE = color(0xFFFFFF);
+            const unsigned int BLACK = color(0x000000);
+            const unsigned int GRAY200 = color(0xF4F4F4);
+            const unsigned int GRAY300 = color(0xEAEAEA);
+            const unsigned int GRAY400 = color(0xD3D3D3);
+            const unsigned int GRAY500 = color(0xBCBCBC);
+            const unsigned int GRAY600 = color(0x959595);
+            const unsigned int GRAY700 = color(0x767676);
+            const unsigned int GRAY800 = color(0x505050);
+            const unsigned int GRAY900 = color(0x323232);
+            const unsigned int BLUE400 = color(0x378EF0);
+            const unsigned int BLUE500 = color(0x2680EB);
+            const unsigned int BLUE600 = color(0x1473E6);
+            const unsigned int BLUE700 = color(0x0D66D0);
+            const unsigned int RED400 = color(0xEC5B62);
+            const unsigned int RED500 = color(0xE34850);
+            const unsigned int RED600 = color(0xD7373F);
+            const unsigned int RED700 = color(0xC9252D);
+            const unsigned int ORANGE400 = color(0xF29423);
+            const unsigned int ORANGE500 = color(0xE68619);
+            const unsigned int ORANGE600 = color(0xDA7B11);
+            const unsigned int ORANGE700 = color(0xCB6F10);
+            const unsigned int GREEN400 = color(0x33AB84);
+            const unsigned int GREEN500 = color(0x2D9D78);
+            const unsigned int GREEN600 = color(0x268E6C);
+            const unsigned int GREEN700 = color(0x12805C);
         }
 
-#ifdef SPECTRUM_USE_LIGHT_THEME
-        const unsigned int GRAY50 = Color(0xFFFFFF);
-        const unsigned int GRAY75 = Color(0xFAFAFA);
-        const unsigned int GRAY100 = Color(0xF5F5F5);
-        const unsigned int GRAY200 = Color(0xEAEAEA);
-        const unsigned int GRAY300 = Color(0xE1E1E1);
-        const unsigned int GRAY400 = Color(0xCACACA);
-        const unsigned int GRAY500 = Color(0xB3B3B3);
-        const unsigned int GRAY600 = Color(0x8E8E8E);
-        const unsigned int GRAY700 = Color(0x707070);
-        const unsigned int GRAY800 = Color(0x4B4B4B);
-        const unsigned int GRAY900 = Color(0x2C2C2C);
-        const unsigned int BLUE400 = Color(0x2680EB);
-        const unsigned int BLUE500 = Color(0x1473E6);
-        const unsigned int BLUE600 = Color(0x0D66D0);
-        const unsigned int BLUE700 = Color(0x095ABA);
-        const unsigned int RED400 = Color(0xE34850);
-        const unsigned int RED500 = Color(0xD7373F);
-        const unsigned int RED600 = Color(0xC9252D);
-        const unsigned int RED700 = Color(0xBB121A);
-        const unsigned int ORANGE400 = Color(0xE68619);
-        const unsigned int ORANGE500 = Color(0xDA7B11);
-        const unsigned int ORANGE600 = Color(0xCB6F10);
-        const unsigned int ORANGE700 = Color(0xBD640D);
-        const unsigned int GREEN400 = Color(0x2D9D78);
-        const unsigned int GREEN500 = Color(0x268E6C);
-        const unsigned int GREEN600 = Color(0x12805C);
-        const unsigned int GREEN700 = Color(0x107154);
-        const unsigned int INDIGO400 = Color(0x6767EC);
-        const unsigned int INDIGO500 = Color(0x5C5CE0);
-        const unsigned int INDIGO600 = Color(0x5151D3);
-        const unsigned int INDIGO700 = Color(0x4646C6);
-        const unsigned int CELERY400 = Color(0x44B556);
-        const unsigned int CELERY500 = Color(0x3DA74E);
-        const unsigned int CELERY600 = Color(0x379947);
-        const unsigned int CELERY700 = Color(0x318B40);
-        const unsigned int MAGENTA400 = Color(0xD83790);
-        const unsigned int MAGENTA500 = Color(0xCE2783);
-        const unsigned int MAGENTA600 = Color(0xBC1C74);
-        const unsigned int MAGENTA700 = Color(0xAE0E66);
-        const unsigned int YELLOW400 = Color(0xDFBF00);
-        const unsigned int YELLOW500 = Color(0xD2B200);
-        const unsigned int YELLOW600 = Color(0xC4A600);
-        const unsigned int YELLOW700 = Color(0xB79900);
-        const unsigned int FUCHSIA400 = Color(0xC038CC);
-        const unsigned int FUCHSIA500 = Color(0xB130BD);
-        const unsigned int FUCHSIA600 = Color(0xA228AD);
-        const unsigned int FUCHSIA700 = Color(0x93219E);
-        const unsigned int SEAFOAM400 = Color(0x1B959A);
-        const unsigned int SEAFOAM500 = Color(0x16878C);
-        const unsigned int SEAFOAM600 = Color(0x0F797D);
-        const unsigned int SEAFOAM700 = Color(0x096C6F);
-        const unsigned int CHARTREUSE400 = Color(0x85D044);
-        const unsigned int CHARTREUSE500 = Color(0x7CC33F);
-        const unsigned int CHARTREUSE600 = Color(0x73B53A);
-        const unsigned int CHARTREUSE700 = Color(0x6AA834);
-        const unsigned int PURPLE400 = Color(0x9256D9);
-        const unsigned int PURPLE500 = Color(0x864CCC);
-        const unsigned int PURPLE600 = Color(0x7A42BF);
-        const unsigned int PURPLE700 = Color(0x6F38B1);
-#endif
-#ifdef SPECTRUM_USE_DARK_THEME
-        const unsigned int GRAY50  = Color(0x24272A);
-        const unsigned int GRAY75  = Color(0x2E3134);
-        const unsigned int GRAY100 = Color(0x32363A);
-        const unsigned int GRAY200 = Color(0x393E42);
-        const unsigned int GRAY300 = Color(0x3E4348);
-        const unsigned int GRAY400 = Color(0x4C5157);
-        const unsigned int GRAY500 = Color(0x5A5F66);
-        const unsigned int GRAY600 = Color(0x787F87);
-        const unsigned int GRAY700 = Color(0x969EA7);
-        const unsigned int GRAY800 = Color(0xC8D0D9);
-        const unsigned int GRAY900 = Color(0xF5F8FF);
+        const unsigned int GRAY50  = color(0x1F262F);
+        const unsigned int GRAY75  = color(0x272F3A);
+        const unsigned int GRAY100 = color(0x2C343F);
+        const unsigned int GRAY200 = color(0x333B47);
+        const unsigned int GRAY300 = color(0x3A4350);
+        const unsigned int GRAY400 = color(0x495563);
+        const unsigned int GRAY500 = color(0x576271);
+        const unsigned int GRAY600 = color(0x737D8B);
+        const unsigned int GRAY700 = color(0x8F99A5);
+        const unsigned int GRAY800 = color(0xC1C8D2);
+        const unsigned int GRAY900 = color(0xF2F5FA);
 
-        const unsigned int BLUE400 = Color(0x2680EB);
-        const unsigned int BLUE500 = Color(0x378EF0);
-        const unsigned int BLUE600 = Color(0x4B9CF5);
-        const unsigned int BLUE700 = Color(0x5AA9FA);
-        const unsigned int RED400 = Color(0xE34850);
-        const unsigned int RED500 = Color(0xEC5B62);
-        const unsigned int RED600 = Color(0xF76D74);
-        const unsigned int RED700 = Color(0xFF7B82);
-        const unsigned int ORANGE400 = Color(0xE68619);
-        const unsigned int ORANGE500 = Color(0xF29423);
-        const unsigned int ORANGE600 = Color(0xF9A43F);
-        const unsigned int ORANGE700 = Color(0xFFB55B);
-        const unsigned int GREEN400 = Color(0x2D9D78);
-        const unsigned int GREEN500 = Color(0x33AB84);
-        const unsigned int GREEN600 = Color(0x39B990);
-        const unsigned int GREEN700 = Color(0x3FC89C);
-        const unsigned int INDIGO400 = Color(0x6767EC);
-        const unsigned int INDIGO500 = Color(0x7575F1);
-        const unsigned int INDIGO600 = Color(0x8282F6);
-        const unsigned int INDIGO700 = Color(0x9090FA);
-        const unsigned int CELERY400 = Color(0x44B556);
-        const unsigned int CELERY500 = Color(0x4BC35F);
-        const unsigned int CELERY600 = Color(0x51D267);
-        const unsigned int CELERY700 = Color(0x58E06F);
-        const unsigned int MAGENTA400 = Color(0xD83790);
-        const unsigned int MAGENTA500 = Color(0xE2499D);
-        const unsigned int MAGENTA600 = Color(0xEC5AAA);
-        const unsigned int MAGENTA700 = Color(0xF56BB7);
-        const unsigned int YELLOW400 = Color(0xDFBF00);
-        const unsigned int YELLOW500 = Color(0xEDCC00);
-        const unsigned int YELLOW600 = Color(0xFAD900);
-        const unsigned int YELLOW700 = Color(0xFFE22E);
-        const unsigned int FUCHSIA400 = Color(0xC038CC);
-        const unsigned int FUCHSIA500 = Color(0xCF3EDC);
-        const unsigned int FUCHSIA600 = Color(0xD951E5);
-        const unsigned int FUCHSIA700 = Color(0xE366EF);
-        const unsigned int SEAFOAM400 = Color(0x1B959A);
-        const unsigned int SEAFOAM500 = Color(0x20A3A8);
-        const unsigned int SEAFOAM600 = Color(0x23B2B8);
-        const unsigned int SEAFOAM700 = Color(0x26C0C7);
-        const unsigned int CHARTREUSE400 = Color(0x85D044);
-        const unsigned int CHARTREUSE500 = Color(0x8EDE49);
-        const unsigned int CHARTREUSE600 = Color(0x9BEC54);
-        const unsigned int CHARTREUSE700 = Color(0xA3F858);
-        const unsigned int PURPLE400 = Color(0x9256D9);
-        const unsigned int PURPLE500 = Color(0x9D64E1);
-        const unsigned int PURPLE600 = Color(0xA873E9);
-        const unsigned int PURPLE700 = Color(0xB483F0);
-#endif
+
+        const unsigned int BLUE400 = color(0x2680EB);
+        const unsigned int BLUE500 = color(0x378EF0);
+        const unsigned int BLUE600 = color(0x4B9CF5);
+        const unsigned int BLUE700 = color(0x5AA9FA);
+        const unsigned int RED400 = color(0xE34850);
+        const unsigned int RED500 = color(0xEC5B62);
+        const unsigned int RED600 = color(0xF76D74);
+        const unsigned int RED700 = color(0xFF7B82);
+        const unsigned int ORANGE400 = color(0xE68619);
+        const unsigned int ORANGE500 = color(0xF29423);
+        const unsigned int ORANGE600 = color(0xF9A43F);
+        const unsigned int ORANGE700 = color(0xFFB55B);
+        const unsigned int GREEN400 = color(0x2D9D78);
+        const unsigned int GREEN500 = color(0x33AB84);
+        const unsigned int GREEN600 = color(0x39B990);
+        const unsigned int GREEN700 = color(0x3FC89C);
+        const unsigned int INDIGO400 = color(0x6767EC);
+        const unsigned int INDIGO500 = color(0x7575F1);
+        const unsigned int INDIGO600 = color(0x8282F6);
+        const unsigned int INDIGO700 = color(0x9090FA);
+        const unsigned int CELERY400 = color(0x44B556);
+        const unsigned int CELERY500 = color(0x4BC35F);
+        const unsigned int CELERY600 = color(0x51D267);
+        const unsigned int CELERY700 = color(0x58E06F);
+        const unsigned int MAGENTA400 = color(0xD83790);
+        const unsigned int MAGENTA500 = color(0xE2499D);
+        const unsigned int MAGENTA600 = color(0xEC5AAA);
+        const unsigned int MAGENTA700 = color(0xF56BB7);
+        const unsigned int YELLOW400 = color(0xDFBF00);
+        const unsigned int YELLOW500 = color(0xEDCC00);
+        const unsigned int YELLOW600 = color(0xFAD900);
+        const unsigned int YELLOW700 = color(0xFFE22E);
+        const unsigned int FUCHSIA400 = color(0xC038CC);
+        const unsigned int FUCHSIA500 = color(0xCF3EDC);
+        const unsigned int FUCHSIA600 = color(0xD951E5);
+        const unsigned int FUCHSIA700 = color(0xE366EF);
+        const unsigned int SEAFOAM400 = color(0x1B959A);
+        const unsigned int SEAFOAM500 = color(0x20A3A8);
+        const unsigned int SEAFOAM600 = color(0x23B2B8);
+        const unsigned int SEAFOAM700 = color(0x26C0C7);
+        const unsigned int CHARTREUSE400 = color(0x85D044);
+        const unsigned int CHARTREUSE500 = color(0x8EDE49);
+        const unsigned int CHARTREUSE600 = color(0x9BEC54);
+        const unsigned int CHARTREUSE700 = color(0xA3F858);
+        const unsigned int PURPLE400 = color(0x9256D9);
+        const unsigned int PURPLE500 = color(0x9D64E1);
+        const unsigned int PURPLE600 = color(0xA873E9);
+        const unsigned int PURPLE700 = color(0xB483F0);
     }
 }

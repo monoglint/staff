@@ -1,7 +1,6 @@
 #define IMGUI_DEFINE_MATH_OPERATORS
 
 #include <GLFW/glfw3.h>
-#include <iostream>
 
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_glfw.h"
@@ -11,25 +10,70 @@
 #include "imgui_spectrum.hh"
 
 #include "api.hh"
+#include "save_file.hh"
 
 static std::string schedule_result_text;
 
+// Basic table info
 constexpr float NAME_COLUMN_WIDTH = 256;
-constexpr float ACTIONS_COLUMN_WIDTH = 71;
 constexpr float BOX_COLUMN_WIDTH = 32;
 constexpr float SINGLE_LETTER_DROPDOWN_COLUMN_WIDTH = 72;
 
-constexpr ImVec2 TOPBAR_PADDING(16, 12);
-constexpr float WINDOW_LAYOUT_PADDING = 16;
+// Distance between windows and the app edge and each other.
+constexpr float PANEL_LAYOUT_PADDING = 64;
 
-ImVec2 work_pos;
-ImVec2 window_size;
-float viewport_width;
+// How many windows there are being divided into the app window
+constexpr int NUM_PANEL_COLUMNS = 2;
 
-constexpr ImGuiWindowFlags WINDOW_FLAGS =  ImGuiWindowFlags_None
+constexpr float BG_COLOR_R = 0.122f * 0.75;
+constexpr float BG_COLOR_G = 0.149f * 0.75;
+constexpr float BG_COLOR_B = .184f * 0.75;
+
+constexpr uint8_t TITLEBAR_COLOR_R = BG_COLOR_R * 2 * 255;
+constexpr uint8_t TITLEBAR_COLOR_G = BG_COLOR_G * 2 * 255;
+constexpr uint8_t TITLEBAR_COLOR_B = BG_COLOR_B * 2 * 255;
+
+// active info that is correlated to the process and the active glfw window
+namespace cache {
+    // For scaling contents
+    static ImVec2 work_pos;
+    static ImVec2 panel_size;
+
+    // Etc
+    int win_size_x = 0;
+    int win_size_y = 0;
+
+    // call each frame
+    static void update_state() {
+        ImGuiViewport* viewport = ImGui::GetMainViewport();
+        work_pos = viewport->WorkPos;
+
+        win_size_x = viewport->WorkSize.x;
+        win_size_y = viewport->WorkSize.y;
+
+        const float pad = PANEL_LAYOUT_PADDING;
+        const float total_w = win_size_x - (2.0f * pad); // exclude left+right padding
+        const float total_h = win_size_y - (2.0f * pad); // exclude top+bottom padding
+
+        const float column_width = (total_w - (NUM_PANEL_COLUMNS - 1) * pad) / (float)NUM_PANEL_COLUMNS;
+
+        panel_size = ImVec2(column_width, total_h);
+    }
+
+    // Based on column index, return where the window should be located. Size should just equate to panel_size
+    static inline ImVec2 get_panel_pos(const int column_index) {
+        return ImVec2(PANEL_LAYOUT_PADDING + column_index * (cache::panel_size.x + PANEL_LAYOUT_PADDING) + cache::work_pos.x, PANEL_LAYOUT_PADDING + cache::work_pos.y);
+    }
+};
+
+constexpr ImGuiWindowFlags WINDOW_FLAGS = ImGuiWindowFlags_None
     | ImGuiWindowFlags_NoMove 
-    | ImGuiWindowFlags_NoResize 
-    | ImGuiWindowFlags_NoCollapse;
+    | ImGuiWindowFlags_NoResize
+    | ImGuiWindowFlags_NoCollapse
+;
+
+constexpr ImGuiTableFlags TABLE_FLAGS = ImGuiTableFlags_None
+;
 
 static GLFWwindow* init_glfw() {
     if (!glfwInit()) {
@@ -37,12 +81,14 @@ static GLFWwindow* init_glfw() {
         return nullptr;
     }
 
-    GLFWwindow* window = glfwCreateWindow(1280, 720, "Staff Scheduler", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1000, 618, "Staff Scheduler", nullptr, nullptr);
     if (!window) {
         std::cerr << "Failed to create GLFW window\n";
         glfwTerminate();
         return nullptr;
     }
+
+    glfwSetWindowSizeLimits(window, 1000, 618, GLFW_DONT_CARE, GLFW_DONT_CARE);
 
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1); // Enable vsync
@@ -55,10 +101,9 @@ static ImGuiIO& init_imgui(GLFWwindow* window) {
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO(); (void)io;
 
-    io.IniFilename = "";
-    
-    ImGui::Spectrum::StyleColorsSpectrum();
-    ImGui::Spectrum::LoadFont(16);
+    io.IniFilename = nullptr;
+
+    themes::spectrum_dark::load();
 
     ImGui_ImplGlfw_InitForOpenGL(window, true);
     ImGui_ImplOpenGL3_Init("#version 130");
@@ -66,20 +111,21 @@ static ImGuiIO& init_imgui(GLFWwindow* window) {
     return io;
 }
 
-static void faculty_window(staff_session& session) {
-    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, TOPBAR_PADDING);
-
-    ImGui::SetNextWindowPos(work_pos + ImVec2(WINDOW_LAYOUT_PADDING + 0 * (window_size.x + WINDOW_LAYOUT_PADDING), WINDOW_LAYOUT_PADDING));
-    ImGui::SetNextWindowSize(window_size);
-    if (!ImGui::Begin("Faculty List", NULL, WINDOW_FLAGS)) {
+static void entry_window(staff_session& session) {
+    ImGui::SetNextWindowPos(cache::get_panel_pos(0));
+    ImGui::SetNextWindowSize(cache::panel_size);
+    if (!ImGui::Begin("People", NULL, WINDOW_FLAGS)) {
         ImGui::End();
-        ImGui::PopStyleVar();
         return;
     }
 
-    ImGui::PopStyleVar();
+start_staff:
+
+    if (!ImGui::CollapsingHeader("Staff")) {
+        goto start_students;
+    }
     
-    if (!ImGui::BeginTable("##Staff", 7, ImGuiTableFlags_RowBg | ImGuiTableFlags_Borders)) {
+    if (!ImGui::BeginTable("##Staff", 7, TABLE_FLAGS)) {
         ImGui::EndTable();
         ImGui::End();
         return;
@@ -137,34 +183,27 @@ static void faculty_window(staff_session& session) {
 
     ImGui::EndTable();
 
-    if (ImGui::Button("Add")) {
-        session.add_staff("Click to Add Name", f_period_index::AA);
+    if (ImGui::Button("Add Staff")) {
+        session.add_staff("New Staff", f_period_index::AA);
     }
 
-    ImGui::End();
-}
+start_students:
 
-static void students_window(staff_session& session) {
+    ImGui::PushStyleColor(ImGuiCol_Separator, ImVec4(0, 0, 0, 0));
+    ImGui::Separator();
+    ImGui::PopStyleColor();
+
     static const char* dropdown_options[] = {
         "A",
         "B",
         "C"    
     };
 
-    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, TOPBAR_PADDING);
-
-    ImGui::SetNextWindowPos(work_pos + ImVec2(WINDOW_LAYOUT_PADDING + 1 * (window_size.x + WINDOW_LAYOUT_PADDING), WINDOW_LAYOUT_PADDING));
-    ImGui::SetNextWindowSize(window_size);
-
-    if (!ImGui::Begin("Student List", NULL, WINDOW_FLAGS)) {
-        ImGui::PopStyleVar();
-        ImGui::End();
-        return;
+    if (!ImGui::CollapsingHeader("Students")) {
+        goto end_window;
     }
-
-    ImGui::PopStyleVar();
     
-    if (!ImGui::BeginTable("##Students", 3, ImGuiTableFlags_RowBg | ImGuiTableFlags_Borders)) {
+    if (!ImGui::BeginTable("##Students", 3, TABLE_FLAGS)) {
         ImGui::EndTable();
         ImGui::End();
         return;
@@ -225,30 +264,33 @@ static void students_window(staff_session& session) {
 
     ImGui::EndTable();
 
-    if (ImGui::Button("Add"))
-        session.add_student("Click to Add Name", e_lunch_period::A, e_lunch_period::A);
+    if (ImGui::Button("Add Student"))
+        session.add_student("New Student", e_lunch_period::A, e_lunch_period::A);
+
+end_window:
 
     ImGui::End();
 }
 
 static void schedule_window(staff_session& session) {
-    ImGui::PushStyleVar(ImGuiStyleVar_FramePadding, TOPBAR_PADDING);
-
-    ImGui::SetNextWindowPos(work_pos + ImVec2(WINDOW_LAYOUT_PADDING + 2 * (window_size.x + WINDOW_LAYOUT_PADDING), WINDOW_LAYOUT_PADDING));
-    ImGui::SetNextWindowSize(window_size);
+    ImGui::SetNextWindowPos(cache::get_panel_pos(1));
+    ImGui::SetNextWindowSize(cache::panel_size);
 
     if (!ImGui::Begin("Schedule", NULL, WINDOW_FLAGS)) {
-        ImGui::PopStyleVar();
         ImGui::End();
         return;
     }
 
-    ImGui::PopStyleVar();
+    if (ImGui::Button("Export")) {
+        file_save_info info = request_save_file();
 
-    if (ImGui::Button("Create Schedule")) {
-        schedule_result_text.clear();
-        schedule_result_text = session.print_distribution_export(session.generate_distribution_export()).str();
+        if (info.saved == true) {
+            session.export_csv(info.file_path);
+        }
     }
+
+    schedule_result_text.clear();
+    schedule_result_text = session.print_distribution_export(session.generate_distribution_export()).str();
 
     ImGui::Text(schedule_result_text.c_str());
 
@@ -263,7 +305,8 @@ int main() {
 
     ImGuiIO& io = init_imgui(window);
 
-    staff_session session("staffsave.ls"); // RAII
+    staff_session session("staffsave.ls");
+
     while (!glfwWindowShouldClose(window)) {
         glfwPollEvents();
 
@@ -271,30 +314,17 @@ int main() {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGuiViewport* viewport = ImGui::GetMainViewport();
-        work_pos = viewport->WorkPos;
-        viewport_width = viewport->WorkSize.x;
+        cache::update_state();
 
-        // Compute column width so we have padding on top/left/right/bottom and between columns.
-        const int NUM_COLUMNS = 3;
-        const float pad = WINDOW_LAYOUT_PADDING;
-        const float total_w = viewport->WorkSize.x - (2.0f * pad); // exclude left+right padding
-        const float total_h = viewport->WorkSize.y - (2.0f * pad); // exclude top+bottom padding
-
-        // Space between columns is (NUM_COLUMNS-1) * pad; distribute remaining width evenly.
-        const float column_width = (total_w - (NUM_COLUMNS - 1) * pad) / (float)NUM_COLUMNS;
-
-        window_size = ImVec2(column_width, total_h);
-
-        faculty_window(session);
-        students_window(session);
+        entry_window(session);
         schedule_window(session);
 
         ImGui::Render();
+
         int display_w, display_h;
         glfwGetFramebufferSize(window, &display_w, &display_h);
         glViewport(0, 0, display_w, display_h);
-        glClearColor(0.1f, 0.1f, 0.11f, 1.0f);
+        glClearColor(BG_COLOR_R, BG_COLOR_G, BG_COLOR_B, 1.0f); 
         glClear(GL_COLOR_BUFFER_BIT);
         ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 
@@ -303,9 +333,10 @@ int main() {
 
     session.state.save();
 
-    ImGui_ImplOpenGL3_Shutdown();
-    ImGui_ImplGlfw_Shutdown();
-    ImGui::DestroyContext();
+    // ImGui_ImplOpenGL3_Shutdown();
+    // ImGui_ImplGlfw_Shutdown();
+    // ImGui::DestroyContext();
+    // ^^^^ app is exiting anyways, memory will be reclaimed
 
     glfwDestroyWindow(window);
     glfwTerminate();
