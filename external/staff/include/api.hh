@@ -49,6 +49,14 @@ struct staff_session {
     std::stringstream print_distribution_export() const;
     std::stringstream print_state() const;
 
+    // When something is removed, it will be saved to a quick one-item cache for quick undoing.
+    // No stack involved...
+    student_entry student_cache = student_entry();
+    staff_entry staff_cache = staff_entry();
+
+    int64_t student_cache_index = -1;
+    int64_t staff_cache_index = -1;
+
     inline t_entry_id add_staff(const std::string& name, const f_period_index availability) {
         state.staff_list.emplace_back(
             name,
@@ -59,7 +67,17 @@ struct staff_session {
     }
 
     inline void remove_staff(const t_entry_id id) {
+        staff_cache_index = id;
+        staff_cache = state.staff_list.at(id);
         state.staff_list.erase(state.staff_list.begin() + id);
+    }
+
+    inline void restore_staff() {
+        if (staff_cache_index == -1)
+            return;
+
+        staff_cache_index = -1;
+        add_staff(staff_cache.name, staff_cache.availability);
     }
 
     inline t_entry_id add_student(const std::string& name, const e_lunch_period a_day_lunch, const e_lunch_period b_day_lunch) {
@@ -73,7 +91,17 @@ struct staff_session {
     }
 
     inline void remove_student(const t_entry_id id) {
+        student_cache_index = id;
+        student_cache = state.student_list.at(id);
         state.student_list.erase(state.student_list.begin() + id);
+    }
+
+    inline void restore_student() {
+        if (student_cache_index == -1)
+            return;
+
+        student_cache_index = -1;
+        add_student(student_cache.name, student_cache.a_day_lunch, student_cache.b_day_lunch);
     }
 
     inline staff_entry& get_staff(const t_entry_id id) {

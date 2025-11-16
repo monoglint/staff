@@ -2,6 +2,7 @@
 
 #include <GLFW/glfw3.h>
 #include <bitset>
+#include <utility>
 
 #include "imgui/imgui.h"
 #include "imgui/backends/imgui_impl_glfw.h"
@@ -139,11 +140,28 @@ start_staff:
         ImGui::TableSetupColumn("Name", ImGuiTableColumnFlags_WidthStretch, NAME_COLUMN_WIDTH);
         ImGui::TableSetupColumn("A Day", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH * 3 + (style.ItemSpacing.x * 2));
         ImGui::TableSetupColumn("B Day", ImGuiTableColumnFlags_WidthFixed, BOX_COLUMN_WIDTH * 3 + (style.ItemSpacing.x * 2));
+    
+        ImGui::TableHeadersRow();
+        
+        ImGui::TableNextColumn();
+
+        ImGui::PushStyleColor(ImGuiCol_Text, ImVec4(0.35, 0.35, 0.365, 1));
+        ImGui::Text("Right Click");
+
+        for (int i = 0; i < 2; i++) {
+            ImGui::TableNextColumn();
+            ImGui::SameLine();
+            ImGui::Text(" A    ");
+            ImGui::SameLine();
+            ImGui::Text("  B    ");
+            ImGui::SameLine();
+            ImGui::Text("   C    ");
+        }
+
+        ImGui::PopStyleColor();
+
+        ImGui::TableNextRow();
     }
-
-    ImGui::TableHeadersRow();
-
-    ImGui::TableNextColumn();
 
     for (int entry_id = 0; entry_id < session.state.staff_list.size(); entry_id++) {
         staff_entry& entry = session.state.staff_list[entry_id];
@@ -155,6 +173,17 @@ start_staff:
         remove_delim_in_string(entry.name);
 
         if (ImGui::BeginPopupContextItem((std::string("##Context") + std::to_string(entry_id)).c_str())) {
+            if (entry_id > 0 && ImGui::MenuItem("Move Up")) {
+                std::swap(session.state.staff_list[entry_id], session.state.staff_list[entry_id - 1]);
+                ImGui::EndPopup();
+                break;
+            }
+            if (entry_id < session.state.staff_list.size() - 1 && ImGui::MenuItem("Move Down")) {
+                std::swap(session.state.staff_list[entry_id], session.state.staff_list[entry_id + 1]);
+                ImGui::EndPopup();
+                break;
+            }
+            ImGui::Separator();      
             if (ImGui::MenuItem("Remove")) {
                 session.remove_staff(entry_id);
                 ImGui::EndPopup();
@@ -176,6 +205,7 @@ start_staff:
             bool active = flag_match(entry.availability, as_flag);
 
             ImGui::SetNextItemWidth(BOX_COLUMN_WIDTH);
+
             if (ImGui::Checkbox((std::string("##Period") + std::to_string(entry_id) + std::to_string(i)).c_str(), &active)) {
                 if (active)
                     entry.availability = entry.availability | as_flag;
@@ -234,6 +264,17 @@ start_students:
         remove_delim_in_string(entry.name);
        
         if (ImGui::BeginPopupContextItem((std::string("##Context") + std::to_string(entry_id)).c_str())) {
+            if (entry_id > 0 && ImGui::MenuItem("Move Up")) {
+                std::swap(session.state.student_list[entry_id], session.state.student_list[entry_id - 1]);
+                ImGui::EndPopup();
+                break;
+            }
+            if (entry_id < session.state.student_list.size() - 1 && ImGui::MenuItem("Move Down")) {
+                std::swap(session.state.student_list[entry_id], session.state.student_list[entry_id + 1]);
+                ImGui::EndPopup();
+                break;
+            }
+            ImGui::Separator();
             if (ImGui::MenuItem("Remove")) {
                 session.remove_student(entry_id);
                 ImGui::EndPopup();

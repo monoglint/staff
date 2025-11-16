@@ -108,6 +108,9 @@ struct staff_entry {
     staff_entry(const std::string& name, const f_period_index availability = f_period_index::NONE)
         : name(name), availability(availability) {}
 
+    staff_entry()
+        : name("No Name"), availability(f_period_index::NONE) {}
+
     std::string name;
     f_period_index availability;
 };
@@ -115,6 +118,9 @@ struct staff_entry {
 struct student_entry {
     student_entry(const std::string& name, const e_lunch_period a_day_lunch, const e_lunch_period b_day_lunch)
         : name(name), a_day_lunch(a_day_lunch), b_day_lunch(b_day_lunch) {}
+
+    student_entry()
+        : name("No Name"), a_day_lunch(e_lunch_period::A), b_day_lunch(e_lunch_period::A) {}
 
     std::string name;
 

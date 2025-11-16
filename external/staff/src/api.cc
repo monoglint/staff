@@ -13,12 +13,48 @@ static inline void append_student_to_export(distribution_export& distr, t_period
 static inline bool is_period_schedulable(const t_name_list& selected_staff_list, const f_period_index period_as_flag, const staff_entry& staff_entry) {
     return flag_match(staff_entry.availability, period_as_flag) && std::find(selected_staff_list.begin(), selected_staff_list.end(), staff_entry.name) == selected_staff_list.end();
 }
+
+static inline bool is_a_day_period(e_period_index period) {
+    return (t_period_index_base)period < 3;
+}
+
+static inline int count_assignments_on_a_day(const distribution_export& distr, const std::string& staff_name) {
+    int count = 0;
+    for (int period_idx = 0; period_idx < 3; ++period_idx) {
+        const auto& staff_list = distr.period_selection_list[period_idx].staff_list;
+        if (std::find(staff_list.begin(), staff_list.end(), staff_name) != staff_list.end()) {
+            count++;
+        }
+    }
+    return count;
+}
+
+static inline int count_assignments_on_b_day(const distribution_export& distr, const std::string& staff_name) {
+    int count = 0;
+    for (int period_idx = 3; period_idx < 6; ++period_idx) {
+        const auto& staff_list = distr.period_selection_list[period_idx].staff_list;
+        if (std::find(staff_list.begin(), staff_list.end(), staff_name) != staff_list.end()) {
+            count++;
+        }
+    }
+    return count;
+}
+
 /*
 
 This function makes an initial pass on the staff list and attempts to fill up the periods as
-evenly as possible.
+evenly as possible. Staff can be assigned up to 2 lunch blocks per day (A-day or B-day).
 
 */
+
+/*
+
+TRANSPARENCY NOTE
+    Although most of these functions were designed by me, AI was used to revise some minor aspects to work with
+    more complicated constraints.
+
+*/
+
 void fill_staff_pass1(const save_state& state, distribution_export& distr, t_period_index_list& periods_with_students_list) {
     t_staff_list staff_list_copy = state.staff_list;
 
@@ -41,9 +77,31 @@ void fill_staff_pass1(const save_state& state, distribution_export& distr, t_per
                     continue;
                 }
 
+                // Check if staff is already at 2 assignments on this day
+                bool is_a_day = is_a_day_period(period);
+                int assignments_on_day = is_a_day 
+                    ? count_assignments_on_a_day(distr, it->name) 
+                    : count_assignments_on_b_day(distr, it->name);
+
+                if (assignments_on_day >= 2) {
+                    // Already has 2 slots on this day, skip
+                    ++it;
+                    continue;
+                }
+
                 selected_staff_list.push_back(it->name);
 
-                it = staff_list_copy.erase(it);
+                // Check if staff now has 2 on both A and B days; if so, fully remove them
+                int a_day_count = count_assignments_on_a_day(distr, it->name);
+                int b_day_count = count_assignments_on_b_day(distr, it->name);
+
+                if (a_day_count >= 2 && b_day_count >= 2) {
+                    // Staff is now scheduled for all their slots (2 per day), remove from pool
+                    it = staff_list_copy.erase(it);
+                } else {
+                    // Keep them in pool for more assignments (up to 2 per day)
+                    ++it;
+                }
 
                 break;
             }
@@ -55,17 +113,6 @@ void fill_staff_pass1(const save_state& state, distribution_export& distr, t_per
     }
 }
 
-/*
-
-This function runs through the first pass, looks for any empty periods, and attempts to fill
-them from any other lunches with any teachers that have availability.
-
-Transparency note - This function was written by ChatGPT, and minimally refactored and retouched by me.
-                    I understand the design and purpose of each individual part of this function and how it
-                    applies to the program that I have designed myself.
-
-                    Comments were rewritten by me
-*/
 void fill_staff_pass2(const save_state& state, distribution_export& distr, t_period_index_list& periods_with_students_list) {
     for (const e_period_index target_period_index : periods_with_students_list) {
         period_selection& target_period = distr.period_selection_list[(size_t)target_period_index];
@@ -92,11 +139,24 @@ void fill_staff_pass2(const save_state& state, distribution_export& distr, t_per
                 );
                 if (staff_it == state.staff_list.end()) continue;
 
-                if (flag_match(staff_it->availability, target_flag)) {
-                    target_period.staff_list.push_back(name);
-                    donor_period.staff_list.erase(it);
-                    goto next_period; // move to next empty period
+                // Must be available for the target period
+                if (!flag_match(staff_it->availability, target_flag)) continue;
+
+                // Ensure moving this staff member won't exceed the per-day limit (2 per day)
+                bool target_is_a_day = is_a_day_period(target_period_index);
+                int assignments_on_target_day = target_is_a_day
+                    ? count_assignments_on_a_day(distr, name)
+                    : count_assignments_on_b_day(distr, name);
+
+                if (assignments_on_target_day >= 2) {
+                    // This staff already has 2 assignments on the target day; skip
+                    continue;
                 }
+
+                // Safe to move
+                target_period.staff_list.push_back(name);
+                donor_period.staff_list.erase(it);
+                goto next_period; // move to next empty period
             }
         }
         next_period:;
@@ -163,36 +223,38 @@ void staff_session::export_csv(const std::string& file_path) const {
 
     const distribution_export distr = generate_distribution_export();
 
-    out << "Period,Staff,Students\n";
+    out << "Lunch,Staff,Students\n";
     for (uint8_t period_selection_list_index = 0; period_selection_list_index < distr.period_selection_list.size(); period_selection_list_index++) {
         std::string header;
         switch (period_selection_list_index) {
             case 0:
-                header = "AA";
+                header = "A Day - A";
                 break;
             case 1:
-                header = "AB";
+                header = "A Day - B";
                 break;
             case 2:
-                header = "AC";
+                header = "A Day - C";
                 break;
             case 3:
-                header = "BA";
+                header = "B Day - A";
                 break;
             case 4:
-                header = "BB";
+                header = "B Day - B";
                 break;
             case 5:
-                header = "BC";
+                header = "B Day - C";
                 break;
         }
 
         const period_selection& period = distr.period_selection_list[period_selection_list_index];
         const std::string staff_name = (period.staff_list.size() > 0) ? period.staff_list.at(0) : "[None]";
 
+        out << header << "," << staff_name << ",";
         for (const std::string& student_name : period.student_list) {
-            out << header << "," << staff_name << "," << student_name << '\n';
+            out << student_name << ",";
         }
+        out << "\n";
     }
 }
 
